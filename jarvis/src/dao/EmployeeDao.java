@@ -1,0 +1,151 @@
+package dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import bean.Bean;
+import bean.EmployeeBean;
+
+public class EmployeeDao extends Dao{
+	
+	EmployeeBean empBean = null;
+	@Override
+	public ArrayList<Bean> getList() {
+		connect();
+		String sql = "select * from employees order by 1";
+		ArrayList<Bean> list = new ArrayList<>();
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				empBean.setDEPARTMENT_NAME(rs.getString("DEPARTMENT_NAME"));
+				empBean.setEMPLOYEE_ID(rs.getString("EMPLOYEE_ID"));
+				empBean.setEMPLOYEE_NAME(rs.getString("EMPLOYEE_NAME"));
+				empBean.setEMPLOYEE_POSITION(rs.getString("EMPLOYEE_POSITION"));
+				empBean.setEMPLOYEE_PW(rs.getString("EMPLOYEE_PW"));
+				
+				list.add(empBean);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
+	
+	@Override
+	public Bean getSingle(String id) {
+		connect();
+		String sql = "select * from employees where id=?";
+		EmployeeBean empBean = new EmployeeBean();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				empBean.setDEPARTMENT_NAME(rs.getString("DEPARTMENT_NAME"));
+				empBean.setEMPLOYEE_ID(rs.getString("EMPLOYEE_ID"));
+				empBean.setEMPLOYEE_NAME(rs.getString("EMPLOYEE_NAME"));
+				empBean.setEMPLOYEE_POSITION(rs.getString("EMPLOYEE_POSITION"));
+				empBean.setEMPLOYEE_PW(rs.getString("EMPLOYEE_PW"));	
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			disconnect();
+		}
+		
+		return empBean;
+	}
+
+
+	@Override
+	public boolean insert(Bean bean) {
+		connect();
+		String sql = "insert into employees(DEPARTMENT_NAME, EMPLOYEE_ID, EMPLOYEE_NAME, EMPLOYEE_POSITION, EMPLOYEE_PW)"
+				+ " values(?, ?, ?, ?, ?)";
+		empBean = (EmployeeBean)bean;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,  empBean.getDEPARTMENT_NAME());
+			pstmt.setString(2,  empBean.getEMPLOYEE_ID());
+			pstmt.setString(3,  empBean.getEMPLOYEE_NAME());
+			pstmt.setString(4,  empBean.getEMPLOYEE_POSITION());
+			pstmt.setString(5,  empBean.getEMPLOYEE_PW());
+
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			disconnect();
+			return false;
+		}finally {
+			disconnect();
+		}
+		return true;
+	}
+
+	@Override
+	public boolean update(Bean bean) {
+		connect();
+		String sql = "update employees set DEPARTMENT_NAME = ? , EMPLOYEE_NAME = ?, EMPLOYEE_POSITION = ?"
+				+ ", EMPLOYEE_PW = ?"
+				+ " where  EMPLOYEE_ID = ?"; 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,  empBean.getDEPARTMENT_NAME());
+			pstmt.setString(2,  empBean.getEMPLOYEE_ID());
+			pstmt.setString(3,  empBean.getEMPLOYEE_NAME());
+			pstmt.setString(4,  empBean.getEMPLOYEE_POSITION());
+			pstmt.setString(5,  empBean.getEMPLOYEE_PW());		
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			disconnect();
+			return false;
+		}finally {
+			disconnect();
+		}
+		
+		return true;
+	}
+
+	@Override
+	public boolean delete(String id) {
+		connect();
+		String sql = "delete from employees where employee_id=?"; 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);					
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			disconnect();
+			return false;
+		}finally {
+			disconnect();
+		}
+		return true;
+	}
+	@Override
+	public boolean delete(int id) {
+		return false;
+	}
+
+	
+	@Override
+	public Bean getSingle(int id) {
+		return null;
+	}
+	
+	
+
+
+}
