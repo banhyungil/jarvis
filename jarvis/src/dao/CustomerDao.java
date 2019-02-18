@@ -79,7 +79,7 @@ public class CustomerDao extends Dao{
 	public boolean insert(Bean bean) {
 		connect();
 		String sql = "insert into customers(ACADEMIC, ADDRESS, BIRTH, CHECK_ARMY, CHECK_JOB_SEEKER, CUSTOMER_CONTACT, CUSTOMER_EMAIL,"
-				+ "Customer_id, CUSTOMER_NAME, CUSTOMER_PW, GENDER, CUSTOMER_CONTACT) "
+				+ "Customer_id, CUSTOMER_NAME, CUSTOMER_PW, GENDER, CUSTOMER_CONTACT)"
 				+ " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		cusBean = (CustomerBean)bean;
 		try {

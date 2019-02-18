@@ -25,11 +25,11 @@
   </script>
   <body>
     <div class="login_main">
-      <div class=login_sub1>
+      <div class="login_sub1">
         <p>Welcome! Jarvis에 오신걸 환영합니다</p>
       </div>
       <div class="login_sub2">
-        <form name="login_form" action="control.jsp">
+        <form name="login_form" method=post action="control.jsp">
         <input type="hidden" name="action" value="login">
           <div>
             아이디<input type="text"> <br>
