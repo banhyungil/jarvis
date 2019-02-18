@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -134,6 +135,31 @@ public class EmployeeDao extends Dao{
 		}
 		return true;
 	}
+	
+	public boolean doubleCheck(String id) {
+        connect();
+        CallableStatement cs;
+        String sql = "{? = call double_check('employee', ?)";
+        int result;
+
+        try {
+           cs = conn.prepareCall(sql);
+           cs.registerOutParameter(1, java.sql.Types.INTEGER);
+           cs.setString(2, id);
+           cs.execute();
+           result = cs.getInt(1);         
+
+           cs.close();
+        } catch (SQLException e) {
+           e.printStackTrace();
+           return false;
+        }
+        if(result >= 1)		//중복인 경우 true
+        	return true;
+        else
+        	return false;
+	}
+	
 	@Override
 	public boolean delete(int id) {
 		return false;

@@ -10,13 +10,5 @@
 <body>
 
 
-
-
-			<div class="clearfix">
-				<button type="reset" class="cancelbtn">Cancel</button>
-				<button type="submit" class="signupbtn">Sign Up</button>
-			</div>
-		</div>
-	</form>
 </body>
 </html>

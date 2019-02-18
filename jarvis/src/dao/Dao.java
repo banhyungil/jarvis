@@ -19,7 +19,7 @@ public abstract class Dao {
 	void connect() {
 		try {
 			Class.forName(jdbc_driver);
-			conn = DriverManager.getConnection(jdbc_url, "hr", "hr");
+			conn = DriverManager.getConnection(jdbc_url, "dao", "dao");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

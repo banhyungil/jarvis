@@ -1,23 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    
+     <jsp:useBean id="cusBean" class="bean.CustomerBean"></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link href="regit_member.css" type="text/css" rel="stylesheet"></link>
+<link href="regit_member.css?aaaaa" type="text/css" rel="stylesheet"></link>
+<script>
+	function double_check(){
+		document.regist_form.action.value = "double_check";
+		document.regist_form.submit();
+	}	
+</script>
 </head>
 <body>
 	<h1 align="center">고객 회원가입</h1>
-	<form class="modal-content" action="control.jsp">
+	<form class="modal-content" name=regist_form action="control.jsp">
 
 		<input type="hidden" name="action" value="insert">
 		<div class="container">
-			<input type="hidden" name="member_type" value="customer"> <label
-				for="customer_id"><b>아이디</b></label> <input type="text"
-				class="primary_id" placeholder="Enter id" name="customer_id">
-			<input type="button" value="중복확인" onclick=""> <label
-				for="customer_pw"><b>비밀번호</b></label> <input type="password"
+			<input type="hidden" name="member_type" value="customer"> 
+			<label for="customer_id"><b>아이디</b></label> <br>
+			<input type="text" class="primary_id" placeholder="Enter id" name="customer_id"> 
+			<input type="button" class=double_btn value="중복확인" onclick="double_check()"> 
+			<label for="customer_pw"><b>비밀번호</b></label> <input type="password"
 				placeholder="Enter Password" name="customer_pw"> <label
 				for="pw_repeat"><b>비밀번호 확인</b></label> <input type="password"
 				placeholder="Repeat Password" name="pw_repeat"> <label
@@ -41,8 +49,8 @@
 			</label>
 
 			<div class="clearfix">
-				<input type="reset" class="cancelbtn">Cancel</input>
-				<input type="submit" class="signupbtn">Sign Up</input>
+				<button type="reset" class="cancelbtn">Cancel</button>
+				<button	type="submit" class="signupbtn">Sign Up</button>
 			</div>
 		</div>
 	</form>

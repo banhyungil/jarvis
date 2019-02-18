@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -79,8 +80,8 @@ public class CustomerDao extends Dao{
 	public boolean insert(Bean bean) {
 		connect();
 		String sql = "insert into customers(ACADEMIC, ADDRESS, BIRTH, CHECK_ARMY, CHECK_JOB_SEEKER, CUSTOMER_CONTACT, CUSTOMER_EMAIL,"
-				+ "Customer_id, CUSTOMER_NAME, CUSTOMER_PW, GENDER, CUSTOMER_CONTACT)"
-				+ " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "Customer_id, CUSTOMER_NAME, CUSTOMER_PW, GENDER)"
+				+ " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		cusBean = (CustomerBean)bean;
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -95,7 +96,6 @@ public class CustomerDao extends Dao{
 			pstmt.setString(9,  cusBean.getCUSTOMER_NAME());
 			pstmt.setString(10,  cusBean.getCUSTOMER_PW());
 			pstmt.setString(11,  cusBean.getGENDER());
-			pstmt.setString(12,  cusBean.getCUSTOMER_CONTACT());
 			
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -159,6 +159,30 @@ public class CustomerDao extends Dao{
 			disconnect();
 		}
 		return true;
+	}
+	
+	public boolean doubleCheck(String id) {
+        connect();
+        CallableStatement cs;
+        String sql = "{? = call double_check('customer', ?)}";
+        int result;
+
+        try {
+           cs = conn.prepareCall(sql);
+           cs.registerOutParameter(1, java.sql.Types.INTEGER);
+           cs.setString(2, id);
+           cs.execute();
+           result = cs.getInt(1);         
+
+           cs.close();
+        } catch (SQLException e) {
+           e.printStackTrace();
+           return false;
+        }
+        if(result >= 1)		//중복인 경우 true
+        	return true;
+        else
+        	return false;
 	}
 	
 	@Override
