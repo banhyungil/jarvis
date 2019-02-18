@@ -23,11 +23,11 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 		}
 	}else if(action.equals("regist")){
 		if(member_type.equals("customer")){
-			pageContext.forward("regit_member_cus.jsp");
+			pageContext.forward("/customer/regit_member_cus.jsp");
 		}else if(member_type.equals("employee")){
-			pageContext.forward("regit_member_emp.jsp");
+			pageContext.forward("/employee/regit_member_emp.jsp");
 		}else if(member_type.equals("company")){
-			pageContext.forward("regit_member_com.jsp");
+			pageContext.forward("/company/regit_member_com.jsp");
 		}
 		
 	}else if(action.equals("insert")){

@@ -7,7 +7,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link href="regit_member.css?aaaaa" type="text/css" rel="stylesheet"></link>
+<link href="<%=request.getContextPath()%>/css/regit_member.css" type="text/css" rel="stylesheet"></link>
 <script>
 	function double_check(){
 		document.regist_form.action.value = "double_check";

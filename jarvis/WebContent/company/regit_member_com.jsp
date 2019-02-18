@@ -6,13 +6,13 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link href="regit_member.css?aaaaa" type="text/css" rel="stylesheet"></link>
+<link href="<%=request.getContextPath()%>/css/regit_member.css" type="text/css" rel="stylesheet"></link>
 
 <script>
-	function double_check(){
-		alert("id 중복");
-		document.regist_form.company_id.value
-	}	
+function double_check(){
+	document.regist_form.action.value = "double_check";
+	document.regist_form.submit();
+}	
 </script>
 </head>
 <body>

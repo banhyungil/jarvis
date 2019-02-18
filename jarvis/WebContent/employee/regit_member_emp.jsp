@@ -6,16 +6,12 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link href="regit_member.css?aaaaa" type="text/css" rel="stylesheet"></link>
+<link href="<%=request.getContextPath()%>/css/regit_member.css" type="text/css" rel="stylesheet"></link>
 <script>
-	function double_check{
-		EmployeeDao empDao = new EmployeeDao();
-		b = empDao.doubleCheck(id);
-		pageContext.forward("regit_member_emp.jsp?isChecked="+ b);
-		
-		document.regist_form.action.value = "double_check";
-		document.login_form.submit();
-	}	
+function double_check(){
+	document.regist_form.action.value = "double_check";
+	document.regist_form.submit();
+}	
 </script>
 </head>
 <body>
@@ -27,7 +23,7 @@
 	 <input type="hidden" name="member_type" value="employee">
 	<label for="employee_id"><b>아이디</b></label>
       <input type="text" class="primary_id" placeholder="Enter id" name="employee_id" required>
-	<input type="button" class=double_btn value="중복확인" onclick="">
+	<input type="button" class=double_btn value="중복확인" onclick="double_check()">
       <label for="customer_pw"><b>비밀번호</b></label>
       <input type="password" placeholder="Enter Password" name="customer_pw" required>
 
