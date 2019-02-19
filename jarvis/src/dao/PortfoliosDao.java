@@ -22,6 +22,8 @@ public class PortfoliosDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				portBean = new PortfoliosBean();
+				
 				portBean.setPORTFOLIO_ID(rs.getInt("PORTFOLIO_ID"));
 				portBean.setPORTFOLIO_NAME(rs.getString("PORTFOLIO_NAME"));
 				portBean.setCUSTOMER_ID(rs.getString("CUSTOMER_ID"));

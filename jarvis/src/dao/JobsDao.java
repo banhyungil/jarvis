@@ -21,6 +21,8 @@ public class JobsDao  extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				jobBean = new JobsBean();
+				
 				jobBean.setJOB_ID(rs.getInt("JOB_ID"));
 				jobBean.setJOB_NAME(rs.getString("JOB_NAME"));
 				

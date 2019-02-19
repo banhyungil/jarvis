@@ -20,6 +20,8 @@ public class ReferListDao extends Dao{
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				referBean = new ReferListBean();
+				
 				referBean.setEMPLOYEE_ID(rs.getString("EMPLOYEE_ID"));
 				referBean.setREFER_LIST_ID(rs.getInt("REFER_LIST_ID"));
 				referBean.setSTATUS(rs.getString("STATUS"));

@@ -21,6 +21,40 @@ public class RecruitlistDao extends Dao{
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				recrlBean = new RecruitlistBean();
+				recrlBean.setRECRUIT_LIST_ID(rs.getInt("RECRUIT_LIST_ID"));
+				recrlBean.setPREFERENTIAL_TREATMENT(rs.getString("PREFERENTIAL_TREATMENT"));
+				recrlBean.setRECRUITMENT_NUMBER(rs.getInt("RECRUITMENT_NUMBER"));
+				recrlBean.setSALARY(rs.getInt("SALARY"));
+				recrlBean.setEMPLOYMENT_TYPE(rs.getString("EMPLOYMENT_TYPE"));
+				recrlBean.setEMPLOYMENT_CONDITION(rs.getString("EMPLOYMENT_CONDITION"));
+				recrlBean.setRECRUIT_INFO_ID(rs.getInt("RECRUIT_INFO_ID"));
+				recrlBean.setJOB_ID(rs.getInt("JOB_ID"));
+				recrlBean.setCHECK_CAREER(rs.getString("CHECK_CAREER"));
+				
+				
+				list.add(recrlBean);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
+	
+	public ArrayList<Bean> getList(int rec_info_id) {
+		connect();
+		String sql = "select * from RECRUIT_LISTS where RECRUIT_INFO_ID = ? order by 1";
+		ArrayList<Bean> list = new ArrayList<Bean>();
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, rec_info_id);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				recrlBean = new RecruitlistBean();
 				recrlBean.setRECRUIT_LIST_ID(rs.getInt("RECRUIT_LIST_ID"));
 				recrlBean.setPREFERENTIAL_TREATMENT(rs.getString("PREFERENTIAL_TREATMENT"));
 				recrlBean.setRECRUITMENT_NUMBER(rs.getInt("RECRUITMENT_NUMBER"));

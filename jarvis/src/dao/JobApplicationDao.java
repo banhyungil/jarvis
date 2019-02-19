@@ -21,6 +21,8 @@ public class JobApplicationDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				jobaBean = new JobApplicationBean();
+				
 				jobaBean.setJOB_APPLICATION_ID(rs.getInt("JOB_APPLICATION_ID"));
 				jobaBean.setEMPLOYMENT_TYPE(rs.getString("EMPLOYMENT_TYPE"));
 				jobaBean.setWELFARE_LEVEL(rs.getString("WELFARE_LEVEL"));

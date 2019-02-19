@@ -20,6 +20,7 @@ public class CareerDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				carBean = new CareerBean();
 				carBean.setCAREER_ID(rs.getInt("CAREER_ID"));
 				carBean.setCAREER_COMPANY(rs.getString("CAREER_COMPANY"));
 				carBean.setCAREER_START_DATE(rs.getString("CAREER_START_DATE"));

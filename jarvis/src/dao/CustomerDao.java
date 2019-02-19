@@ -16,11 +16,12 @@ public class CustomerDao extends Dao{
 		connect();
 		String sql = "select * from customers order by 1";
 		ArrayList<Bean> list = new ArrayList<Bean>();
-
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				cusBean = new CustomerBean();
 				cusBean.setACADEMIC("ACADEMIC");
 				cusBean.setADDRESS(rs.getString("address"));
 				cusBean.setBIRTH(rs.getString("birth"));

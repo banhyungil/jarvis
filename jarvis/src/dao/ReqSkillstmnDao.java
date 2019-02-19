@@ -21,6 +21,8 @@ public class ReqSkillstmnDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				rssBean = new ReqSkillstmnBean();
+				
 				rssBean.setREQ_SKILL_STMN_ID(rs.getInt("REQ_SKILL_STMN_ID"));
 				rssBean.setNCS_ID(rs.getInt("NCS_ID"));
 				rssBean.setRECRUIT_LIST_ID(rs.getInt("RECRUIT_LIST_ID"));

@@ -21,6 +21,7 @@ public class NcsDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				nBean = new NcsBean();
 				nBean.setNCS_ID(rs.getInt("NCS_ID"));
 				nBean.setNCS_NAME(rs.getString("NCS_NAME"));
 				nBean.setNCS_LEVEL(rs.getInt("NCS_LEVEL"));

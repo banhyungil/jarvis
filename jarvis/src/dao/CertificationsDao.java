@@ -20,6 +20,8 @@ public class CertificationsDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				certBean = new CertificationsBean();
+				
 				certBean.setCERTIFICATION_ID(rs.getInt("CERTIFICATION_ID"));
 				certBean.setCERTIFICATION_NAME(rs.getString("CERTIFICATION_NAME"));
 				certBean.setCERTIFICATION_CLASS(rs.getString("CERTIFICATION_CLASS"));

@@ -21,6 +21,8 @@ public class RecCertlistDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				reclBean = new RecCertlistBean();
+				
 				reclBean.setREC_CERT_LIST_ID(rs.getInt("REC_CERT_LIST_ID"));
 				reclBean.setACQUIRE_DATE(rs.getString("ACQUIRE_DATE"));
 				reclBean.setREQUIRED(rs.getString("REQUIRED"));

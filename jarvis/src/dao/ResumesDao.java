@@ -21,6 +21,7 @@ public class ResumesDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				resuBean = new ResumesBean();
 				resuBean.setRESUME_ID(rs.getInt("RESUME_ID"));
 				resuBean.setMOTIVE(rs.getString("MOTIVE"));
 				resuBean.setPERSONALITY(rs.getString("PERSONALITY"));

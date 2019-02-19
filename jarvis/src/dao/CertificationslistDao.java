@@ -20,6 +20,7 @@ public class CertificationslistDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				certlBean = new CertificationlistBean();
 				certlBean.setCERTIFICATION_LIST_ID(rs.getInt("CERTIFICATION_LIST_ID"));
 				certlBean.setACQUIRE_DATE(rs.getString("ACQUIRE_DATE"));
 				certlBean.setEXPIRE_DATE(rs.getString("EXPIRE_DATE"));

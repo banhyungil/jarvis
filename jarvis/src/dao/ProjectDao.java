@@ -21,6 +21,8 @@ public class ProjectDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				projBean = new ProjectBean();
+				
 				projBean.setPROJECT_ID(rs.getInt("PROJECT_ID"));
 				projBean.setPROJECT_NAME(rs.getString("PROJECT_NAME"));
 				projBean.setPROJECT_START_DATE(rs.getString("PROJECT_START_DATE"));

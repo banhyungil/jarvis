@@ -21,6 +21,8 @@ public class EmployeeDao extends Dao{
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				empBean = new EmployeeBean();
+				
 				empBean.setDEPARTMENT_NAME(rs.getString("DEPARTMENT_NAME"));
 				empBean.setEMPLOYEE_ID(rs.getString("EMPLOYEE_ID"));
 				empBean.setEMPLOYEE_NAME(rs.getString("EMPLOYEE_NAME"));

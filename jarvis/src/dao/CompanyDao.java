@@ -22,6 +22,7 @@ public class CompanyDao extends Dao{
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				compBean = new CompanyBean();
 				compBean.setCHARGER(rs.getString("CHARGER"));
 				compBean.setCOMPANY_CONTACT(rs.getString("COMPANY_CONTACT"));
 				compBean.setCOMPANY_ID(rs.getString("COMPANY_ID"));

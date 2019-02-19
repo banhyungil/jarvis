@@ -21,6 +21,8 @@ public class SkillStmnDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				sksBean = new SkillStmnBean();
+				
 				sksBean.setSKILL_STMN_ID(rs.getInt("SKILL_STMN_ID"));
 				sksBean.setNCS_ID(rs.getInt("NCS_ID"));
 				sksBean.setCUSTOMER_ID(rs.getString("CUSTOMER_ID"));

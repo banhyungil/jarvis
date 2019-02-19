@@ -21,6 +21,7 @@ public class RecruitsDao extends Dao {
 			pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
+				recrBean = new RecruitsBean();
 				recrBean.setRECRUIT_INFO_ID(rs.getInt("RECRUIT_INFO_ID"));
 				recrBean.setRECRUIT_START_DATE(rs.getString("RECRUIT_START_DATE"));
 				recrBean.setRECRUIT_END_DATE(rs.getString("RECRUIT_END_DATE"));
