@@ -160,6 +160,31 @@ public class EmployeeDao extends Dao{
         	return false;
 	}
 	
+	public boolean loginCheck(String id, String pw) {
+		connect();
+        CallableStatement cs;
+        String sql = "{? = call check_login('customer', ?, ?)}";
+        int result;
+
+        try {
+           cs = conn.prepareCall(sql);
+           cs.registerOutParameter(1, java.sql.Types.INTEGER);
+           cs.setString(2, id);
+           cs.setString(3, pw);
+           cs.execute();
+           result = cs.getInt(1);         
+
+           cs.close();
+        } catch (SQLException e) {
+           e.printStackTrace();
+           return false;
+        }
+        if(result >= 1)		//login이 되었으면
+        	return true;
+        else
+        	return false;
+	}
+	
 	@Override
 	public boolean delete(int id) {
 		return false;

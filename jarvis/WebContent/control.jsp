@@ -13,7 +13,8 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 	<%
 	String action = request.getParameter("action");
 	String member_type = request.getParameter("member_type");
-	String id = "";
+	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
 	Dao dao;
 	if(action.equals("main")){
 		if(member_type.equals("customer")){
@@ -53,13 +54,35 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 		</script>
 		<% 
 	} else if(action.equals("login")){
-		response.sendRedirect("login.jsp");
+		boolean b = false;
+		
+		if(member_type.equals("customer")){			
+			CustomerDao cusDao = new CustomerDao();
+			b = cusDao.loginCheck(id, pw);		
+			if(b){
+				response.sendRedirect(request.getContextPath() + "/customer/cus_main.jsp?");	//bean객체를 session에저장해야함			
+			}else {		
+				%>
+				<script>
+				alert("ID/Password가 일치하지 않습니다.");
+				window.history.back();
+				</script>
+				<% 
+			}
+		}else if(member_type.equals("company")){
+			CompanyDao comDao = new CompanyDao();
+			b = comDao.insert(comBean);
+		}else if(member_type.equals("employee")){
+			EmployeeDao empDao = new EmployeeDao();
+			empDao.insert(empBean);
+		}
 	} else if(action.equals("double_check")){
 		boolean b;
 		if(member_type.equals("customer")){			
 			CustomerDao cusDao = new CustomerDao();
-			id = request.getParameter("customer_id");
-			b = cusDao.doubleCheck(id);
+			String cus_id;
+			cus_id = request.getParameter("customer_id");
+			b = cusDao.doubleCheck(cus_id);
 			if(b){		//중복인 경우
 				%>
 				<script>
@@ -80,16 +103,52 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 			<%
 		}else if(member_type.equals("company")){
 			CompanyDao comDao = new CompanyDao();
-			id = request.getParameter("company_id");
+			String com_id;
+			com_id = request.getParameter("company_id");
+			b = comDao.doubleCheck(com_id);
+			if(b){		//중복인 경우
+				%>
+				<script>
+				alert("중복된 아이디입니다.");
+				</script>
+				<% 
+			} else{
+				%>
+				<script>
+				alert("사용가능한 아이디입니다.");
+				</script>
+				<%			
+			}
+			%>
+			<script>
+				window.history.back();
+			</script>
+			<%
 			
-			b = comDao.doubleCheck(id);
-			pageContext.forward("regit_member_com.jsp?isChecked="+ b);
+
 		}else if(member_type.equals("employee")){
 			EmployeeDao empDao = new EmployeeDao();
-			id = request.getParameter("employee_id");
-			
-			b = empDao.doubleCheck(id);
-			pageContext.forward("regit_member_emp.jsp?isChecked="+ b);
+			String emp_id;
+			emp_id = request.getParameter("employee_id");
+			b = empDao.doubleCheck(emp_id);
+			if(b){		//중복인 경우
+				%>
+				<script>
+				alert("중복된 아이디입니다.");
+				</script>
+				<% 
+			} else{
+				%>
+				<script>
+				alert("사용가능한 아이디입니다.");
+				</script>
+				<%			
+			}
+			%>
+			<script>
+				window.history.back();
+			</script>
+			<%		
 		}
 	}
 		
