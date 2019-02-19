@@ -1,49 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>    
-  </head>
-  <style media="screen">
-    div{
-      border : solid 0.5px;
-    }
-    div.login_main{
-      border : solid 1px;
-    }
-  </style>
-  <script type="text/javascript">
-    function login(){
-      document.login_form.submit();
-    }
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link href="<%=request.getContextPath()%>/css/login.css" type="text/css" rel="stylesheet"></link>
+
+<script type="text/javascript">
 	function regitMember(){
 		document.login_form.action.value = "regist";
 		document.login_form.submit();
     }
   </script>
+</head>
 <body>
-	<div class="login_main">
-		<div class="login_sub1">
-			<p>Welcome! Jarvis에 오신걸 환영합니다</p>
+	<form class="modal-content animate" name="login_form" action="control.jsp">
+	<input type="hidden" name="action" value="login">
+		<div class="imgcontainer">
+
+			<img src="<%=request.getContextPath()%>/img/login_image.png"
+				alt="Avatar" class="avatar">
 		</div>
-		<div class="login_sub2">
-			<form name="login_form" method=post action="control.jsp">
-				<input type="hidden" name="action" value="main">
-				<div>
-					아이디<input type="text"> <br> 비번<input type="text">
-				</div>
-				<div>
-					<input type="radio" name="member_type" value="customer" checked>
-					고객 <input type="radio" name="member_type" value="company">
-					기업 <input type="radio" name="member_type" value="employee">
-					직원 <br> <input type="submit" value="로그인"> <input
-						type="button" value="회원가입" onclick="regitMember();">
-				</div>
-			</form>
+
+		<div class="container">
+			<label for="id"><b>Username</b></label> <input type="text"
+				placeholder="Enter Username" name="id" required> <label
+				for="pw"><b>Password</b></label> <input type="password"
+				placeholder="Enter Password" name="pw" required>
+
+			<button type="submit">Login</button>
+
+			고객<input type="radio" name="member_type" value="customer" checked>
+			기업 <input type="radio" name="member_type" value="company"> 
+			직원<input type="radio" name="member_type" value="employee"> 
+			<input type="button" class="regist_btn" value="회원가입" onclick="regitMember();">
 
 		</div>
-	</div>
+
+		<div class="container" style="background-color: #f1f1f1">
+			<button type="reset" onclick="regitMember()" class="cancelbtn">Cancel</button>
+			<span class="psw">Forgot <a href="#">password?</a></span>
+		</div>
+	</form>
 </body>
 </html>

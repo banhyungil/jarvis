@@ -5,10 +5,10 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
     <%@ page import="java.util.ArrayList" %>
     <jsp:useBean id="cusBean" class="bean.CustomerBean"></jsp:useBean>
     <jsp:setProperty property="*" name="cusBean"/>
-    <!--<jsp:useBean id="empBean" class="bean.EmployeeBean"></jsp:useBean>
+    <jsp:useBean id="comBean" class="bean.CompanyBean"></jsp:useBean>
+    <jsp:setProperty property="*" name="comBean"/>
+    <jsp:useBean id="empBean" class="bean.EmployeeBean"></jsp:useBean>
     <jsp:setProperty property="*" name="empBean"/>
-    <jsp:useBean id="comBean" class="bean.CompanyBean"></jsp:useBean>  
-    <jsp:setProperty property="*" name="comBean"/>-->
     
 	<%
 	String action = request.getParameter("action");
@@ -60,6 +60,9 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 			CustomerDao cusDao = new CustomerDao();
 			b = cusDao.loginCheck(id, pw);		
 			if(b){
+				cusBean = null;
+				cusBean = (CustomerBean)cusDao.getSingle(id);
+				session.setAttribute("cusBean", cusBean);
 				response.sendRedirect(request.getContextPath() + "/customer/cus_main.jsp?");	//bean객체를 session에저장해야함			
 			}else {		
 				%>
@@ -71,10 +74,36 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 			}
 		}else if(member_type.equals("company")){
 			CompanyDao comDao = new CompanyDao();
-			b = comDao.insert(comBean);
+			b = comDao.loginCheck(id, pw);	
+			if(b){
+				comBean = null;
+				comBean = (CompanyBean)comDao.getSingle(id);
+				session.setAttribute("comBean", comBean);
+				response.sendRedirect(request.getContextPath() + "/customer/com_main.jsp?");	//bean객체를 session에저장해야함			
+			}else {		
+				%>
+				<script>
+				alert("ID/Password가 일치하지 않습니다.");
+				window.history.back();
+				</script>
+				<% 
+			}
 		}else if(member_type.equals("employee")){
 			EmployeeDao empDao = new EmployeeDao();
-			empDao.insert(empBean);
+			b = empDao.loginCheck(id, pw);	
+			if(b){
+				empBean = null;
+				empBean = (EmployeeBean)empDao.getSingle(id);
+				session.setAttribute("empBean", empBean);
+				response.sendRedirect(request.getContextPath() + "/customer/emp_main.jsp?");	//bean객체를 session에저장해야함			
+			}else {		
+				%>
+				<script>
+				alert("ID/Password가 일치하지 않습니다.");
+				window.history.back();
+				</script>
+				<% 
+			}
 		}
 	} else if(action.equals("double_check")){
 		boolean b;
