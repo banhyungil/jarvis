@@ -24,28 +24,28 @@
 
  <div id="Paris" class="tabcontent">
   <h3>경력</h3>
-   <%@ include file= "getinfo_career.jsp"%>
+   <%@ include file= "getinfo/getinfo_career.jsp"%>
 </div>
 
 <!--
-<div id="Seoul" class="tabcontent">
+<div id="Seoul" class="getinfo/tabcontent">
   <h3>포트폴리오</h3>
-   <//%@ include file="getinfo_proj.jsp" %> 
+   <//%@ include file="getinfo/getinfo_proj.jsp" %> 
 </div>
 
-<div id="London" class="tabcontent">
+<div id="London" class="getinfo/tabcontent">
   <h3>자격증</h3>
    <//%@ include file= "getinfo_cert.jsp"%>
 </div>
 
 
 
-<div id="Tokyo" class="tabcontent">
+<div id="Tokyo" class="getinfo/tabcontent">
   <h3>보유기술명세서</h3>
    <//%@ //include file= "getinfo_skill.jsp"%>
 </div>
 
-<div id="Pusan" class="tabcontent">
+<div id="Pusan" class="getinfo/tabcontent">
   <h3>자소서</h3>
    <//%@ //include file= "getinfo_resum.jsp"%>
 </div> -->

@@ -20,8 +20,8 @@
 <div class="content" align="center">
   <h1>MENU</h1>
   <button class="btn info"><a href="getjob.jsp">채용확인</a></button>
-  <button class="btn warning"><a href="cus_resume_list.jsp">정보조회</a></button>
-  <button class="btn danger"><a href="applyjob.jsp">구직신청확인</a></button>
+  <button class="btn warning"><a href="getinfo.jsp">정보조회</a></button>
+  <button class="btn danger"><a href="applyjob.jsp">구직신청</a></button>
   <button class="btn success"><a href="matching.jsp">매칭정보확인</a></button>
 </div>
 
