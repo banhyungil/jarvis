@@ -49,7 +49,7 @@
 						<td><%=resuBean.getCompany_id()%></td>
 						<td><%=resuBean.getResume_rev_date()%></td>
 						<td><%=resuBean.getFeedback()%></td>
-											
+											<!-- 수정 -->
 					</tr>
 					<%
 						}

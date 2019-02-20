@@ -53,7 +53,7 @@ public class ResumesDao extends Dao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, cus_id);					//수정
+			pstmt.setString(1, cus_id);					// 수정
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				resuBean = new ResumesBean();
