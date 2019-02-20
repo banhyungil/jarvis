@@ -47,8 +47,9 @@ public class ProjectDao extends Dao {
 	
 	public ArrayList<Bean> getList(String cus_id) {
 		connect();
-		String sql = "select b.customer_id ,a.certification_id, a.certification_name, a.certification_class, a.institution, b.certification_list_id, b.acquire_date, b.expire_date from certifications a, certification_list b where a.certification_id=b.certification_id" + 
-				" and b.customer_id=? order by 1";
+		String sql = "select a.customer_id, a.portfolio_id, a.portfolio_name, b.project_id, b.project_name, b.project_start_date, b.project_end_date, b.participation_period, b.briefing, b.project_job" + 
+				"from portfolios a, projects " + 
+				"where a.portfolio_id=b.portfolio_id and a.customer_id=? order by a.customer_id";
 		ArrayList<Bean> list = new ArrayList<Bean>();
 
 		try {

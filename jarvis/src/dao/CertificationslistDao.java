@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import bean.Bean;
 import bean.CertificationlistBean;
+import bean.CertjoinBean;
 
 public class CertificationslistDao extends Dao {
 
@@ -38,7 +39,41 @@ public class CertificationslistDao extends Dao {
 		return list;
 	}
 
+
 	
+	public ArrayList<Bean> getList(String cus_id) {
+		connect();
+		String sql = "select b.customer_id ,a.certification_id, a.certification_name, a.certification_class, a.institution, b.certification_list_id, b.acquire_date, b.expire_date from certifications a, certification_list b where a.certification_id=b.certification_id" + 
+				" and b.customer_id=? order by 1";
+		ArrayList<Bean> list = new ArrayList<Bean>();
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cus_id);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				CertjoinBean cerjlBean = new CertjoinBean();
+				cerjlBean.setCERTIFICATION_ID(rs.getInt("CERTIFICATION_ID"));
+				cerjlBean.setCERTIFICATION_NAME(rs.getString("CERTIFICATION_NAME"));
+				cerjlBean.setCERTIFICATION_CLASS(rs.getString("CERTIFICATION_CLASS"));
+				cerjlBean.setINSTITUTION(rs.getString("INSTITUTION"));
+				cerjlBean.setCERTIFICATION_LIST_ID(rs.getInt("CERTIFICATION_LIST_ID"));
+				cerjlBean.setACQUIRE_DATE(rs.getString("ACQUIRE_DATE"));
+				cerjlBean.setEXPIRE_DATE(rs.getString("EXPIRE_DATE"));
+				cerjlBean.setCUSTOMER_ID(rs.getString("CUSTOMER_ID"));
+										
+				list.add(cerjlBean);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
+	
+		
 	@Override
 	public Bean getSingle(int id) {
 		connect();

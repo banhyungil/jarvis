@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.ArrayList" %>
     <%@ page import="bean.*" %>
+    <%@ page import="dao.*" %>
+    <jsp:useBean id="certDao" class="dao.CertificationslistDao"></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,38 +11,39 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>채용상세정보확인</h2>
+	<h2>자격증</h2>
 	<div class="tbl-header">
 		</div>
 		<div class="tbl-content">
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
 					<tr>
-						<th>id</th>
-						<th>PREFERENTIAL_TREATMENT</th>
-						<th>RECRUITMENT_NUMBER</th>
-						<th>SALARY</th>
-						<th>EMPLOYMENT_TYPE</th>	
-						<th>EMPLOYMENT_CONDITION</th>
-						<th>RECRUIT_INFO_ID</th>
-						<th>JOB_ID</th>
-						<th>CHECK_CAREER</th>					
+						<th>ID</th>
+						<th>CERTIFICATION_NAME</th>
+						<th>CERTIFICATION_CLASS</th>
+						<th>INSTITUTION</th>
+						<th>CERTIFICATION_LIST_ID</th>	
+						<th>ACQUIRE_DATE</th>
+						<th>EXPIRE_DATE</th>
+						<th>CUSTOMER_ID</th>
+										
 					</tr>
 					<%
-						ArrayList<Bean> list = (ArrayList<Bean>)request.getAttribute("list");
-						for (Bean b : (ArrayList<Bean>) list) {
-							RecruitlistBean recLBean = (RecruitlistBean)b;
+					CustomerBean cusBean3 = (CustomerBean)session.getAttribute("cusBean");   
+					ArrayList<Bean> list3 = certDao.getList(cusBean3.getCustomer_id());
+						for (Bean b : (ArrayList<Bean>) list3) {
+							CertjoinBean cerjlBean = (CertjoinBean)b;
 					%>
 					<tr>
-						<td><%=recLBean.getRECRUIT_LIST_ID()%></td>
-						<td><%=recLBean.getPREFERENTIAL_TREATMENT()%></td>
-						<td><%=recLBean.getRECRUITMENT_NUMBER()%></td>
-						<td><%=recLBean.getSALARY()%></td>
-						<td><%=recLBean.getEMPLOYMENT_TYPE()%></td>
-						<td><%=recLBean.getEMPLOYMENT_CONDITION()%></td>
-						<td><%=recLBean.getRECRUIT_INFO_ID()%></td>
-						<td><%=recLBean.getJOB_ID()%></td>
-						<td><%=recLBean.getCHECK_CAREER()%></td>
+						<td><%=cerjlBean.getCERTIFICATION_ID()%></td>
+						<td><%=cerjlBean.getCERTIFICATION_NAME()%></td>
+						<td><%=cerjlBean.getCERTIFICATION_CLASS()%></td>
+						<td><%=cerjlBean.getINSTITUTION()%></td>
+						<td><%=cerjlBean.getCERTIFICATION_LIST_ID()%></td>
+						<td><%=cerjlBean.getACQUIRE_DATE()%></td>
+						<td><%=cerjlBean.getEXPIRE_DATE()%></td>
+						<td><%=cerjlBean.getCUSTOMER_ID()%></td>
+						
 					</tr>
 					<%
 						}
