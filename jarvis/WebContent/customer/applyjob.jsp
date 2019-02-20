@@ -54,7 +54,7 @@ body {font-family: Arial;}
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Seoul')">신청여부</button>
   <button class="tablinks" onclick="openCity(event, 'London')">결과</button>
-  <button class="tablinks" onclick="openCity(event, 'Monaco')"><a href="main.jsp">메인으로</a></button>
+  <button class="tablinks" onclick="openCity(event, 'Monaco')"><a href="cus_main.jsp">메인으로</a></button>
 </div>
 
 <div id="Seoul" class="tabcontent">

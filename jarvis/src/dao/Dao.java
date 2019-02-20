@@ -14,7 +14,7 @@ public abstract class Dao {
 	PreparedStatement pstmt = null;
 	
 	String jdbc_driver = "oracle.jdbc.driver.OracleDriver";
-	String jdbc_url = "jdbc:oracle:thin:@192.168.111.131:1521:DAO";
+	String jdbc_url = "jdbc:oracle:thin:@192.168.0.24:1521:DAO";
 	
 	void connect() {
 		try {

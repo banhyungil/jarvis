@@ -42,6 +42,38 @@ public class CareerDao extends Dao {
 		return list;
 	}
 
+	public ArrayList<Bean> getList(String cus_id) {
+		connect();
+		String sql = "select * from careers where customer_id = ? order by 1";	//수정
+		ArrayList<Bean> list = new ArrayList<Bean>();
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cus_id);					//수정
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				carBean = new CareerBean();
+				carBean.setCAREER_ID(rs.getInt("CAREER_ID"));
+				carBean.setCAREER_COMPANY(rs.getString("CAREER_COMPANY"));
+				carBean.setCAREER_START_DATE(rs.getString("CAREER_START_DATE"));
+				carBean.setCAREER_END_DATE(rs.getString("CAREER_END_DATE"));
+				carBean.setCAREER_JOB(rs.getString("CAREER_JOB"));
+				carBean.setCUSTOMER_ID(rs.getString("CUSTOMER_ID"));
+				carBean.setCAREER_PERIOD(rs.getInt("CAREER_PERIOD"));
+				carBean.setCAREER_POSITION(rs.getString("CAREER_POSITION"));
+				
+				
+				list.add(carBean);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
 	
 	@Override
 	public Bean getSingle(int id) {
