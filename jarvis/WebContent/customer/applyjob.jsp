@@ -11,7 +11,7 @@
 <h2>구직신청</h2>
 
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Seoul')">구직신청</button>
+  <button class="tablinks" onclick="openCity(event, 'Seoul')">구직신청</button> <!-- sa -->
   <button class="tablinks" onclick="openCity(event, 'London')">구직신청</button>
   <button class="tablinks" onclick="openCity(event, 'Monaco')"><a href="cus_main.jsp">메인으로</a></button>
 </div>

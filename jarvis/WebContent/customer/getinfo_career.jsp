@@ -18,9 +18,9 @@
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
 					<tr>
-						<th>ID</th>		<!-- 컬럼 -->
+						<th>ID</th>		<!-- 컬럼 -->	
 						<th>CAREER_JOB</th>
-						<th>CAREER_POSITION</th>
+						<th>CAREER_POSITION</th>	<!-- sa -->
 						<th>CAREER_COMPANY</th>
 						<th>CAREER_START_DATE</th>	
 						<th>CAREER_END_DATE</th>
