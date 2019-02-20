@@ -44,12 +44,12 @@ public class CareerDao extends Dao {
 
 	public ArrayList<Bean> getList(String cus_id) {
 		connect();
-		String sql = "select * from careers where customer_id = ? order by 1";	//¼öÁ¤
+		String sql = "select * from careers where customer_id = ? order by 1";	//ìˆ˜ì •
 		ArrayList<Bean> list = new ArrayList<Bean>();
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, cus_id);					//¼öÁ¤
+			pstmt.setString(1, cus_id);					//ìˆ˜ì •
 			
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
