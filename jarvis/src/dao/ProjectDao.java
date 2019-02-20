@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import bean.Bean;
 import bean.ProjectBean;
+import bean.ProjoinBean;
 
 
 public class ProjectDao extends Dao {
@@ -33,6 +34,42 @@ public class ProjectDao extends Dao {
 				projBean.setPORTFOLIO_ID(rs.getInt("PORTFOLIO_ID"));
 								
 				list.add(projBean);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
+
+	
+	public ArrayList<Bean> getList(String cus_id) {
+		connect();
+		String sql = "select b.customer_id ,a.certification_id, a.certification_name, a.certification_class, a.institution, b.certification_list_id, b.acquire_date, b.expire_date from certifications a, certification_list b where a.certification_id=b.certification_id" + 
+				" and b.customer_id=? order by 1";
+		ArrayList<Bean> list = new ArrayList<Bean>();
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cus_id);	
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ProjoinBean pjBean = new ProjoinBean();
+				
+				pjBean.setPortfolio_id(rs.getInt("PORTFOLIO_ID"));
+				pjBean.setPortfolio_name(rs.getString("PORTFOLIO_NAME"));
+				pjBean.setCustomer_id(rs.getString("CUSTOMER_ID"));
+				pjBean.setProject_id(rs.getInt("PROJECT_ID"));
+				pjBean.setProject_name(rs.getString("PROJECT_NAME"));
+				pjBean.setProject_start_date(rs.getString("PROJECT_START_DATE"));
+				pjBean.setProject_end_date(rs.getString("PROJECT_END_DATE"));
+				pjBean.setParticipation_period(rs.getInt("PARTICIPATION_PERIOD"));
+				pjBean.setBriefing(rs.getString("BRIEFING"));
+				pjBean.setProject_job(rs.getString("PROJECT_JOB"));
+								
+				list.add(pjBean);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

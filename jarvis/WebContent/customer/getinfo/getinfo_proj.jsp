@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.ArrayList" %>
     <%@ page import="bean.*" %>
+    <%@ page import="dao.*" %>
+    <jsp:useBean id="projDao" class="dao.ProjectDao"></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,38 +11,45 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>채용상세정보확인</h2>
+	<h2>포트폴리오</h2>
 	<div class="tbl-header">
 		</div>
 		<div class="tbl-content">
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
 					<tr>
-						<th>id</th>
-						<th>PREFERENTIAL_TREATMENT</th>
-						<th>RECRUITMENT_NUMBER</th>
-						<th>SALARY</th>
-						<th>EMPLOYMENT_TYPE</th>	
-						<th>EMPLOYMENT_CONDITION</th>
-						<th>RECRUIT_INFO_ID</th>
-						<th>JOB_ID</th>
-						<th>CHECK_CAREER</th>					
+						<th>ID</th>
+						<th>PROJECT_NAME</th>
+						<th>CUSTOMER_ID</th>
+						<th>PROJECT_ID</th>
+						<th>PROJECT_NAME</th>
+						<th>PROJECT_START_DATE</th>
+						<th>PROJECT_END_DATE</th>
+						<th>PROJECT_JOB</th>	
+						<th>PARTICIPATION_PERIOD</th>
+						<th>BRIEFING</th>
+						<th>PROJECT_JOB</th>
+										
 					</tr>
-					<%
-						ArrayList<Bean> list = (ArrayList<Bean>)request.getAttribute("list");
-						for (Bean b : (ArrayList<Bean>) list) {
-							RecruitlistBean recLBean = (RecruitlistBean)b;
+					<%	
+					CustomerBean cusBean2 = (CustomerBean)session.getAttribute("cusBean");   
+					ArrayList<Bean> list2 = projDao.getList(cusBean2.getCustomer_id());
+						for (Bean b : (ArrayList<Bean>) list2) {
+							ProjoinBean pjBean = (ProjoinBean)b;
 					%>
 					<tr>
-						<td><%=recLBean.getRECRUIT_LIST_ID()%></td>
-						<td><%=recLBean.getPREFERENTIAL_TREATMENT()%></td>
-						<td><%=recLBean.getRECRUITMENT_NUMBER()%></td>
-						<td><%=recLBean.getSALARY()%></td>
-						<td><%=recLBean.getEMPLOYMENT_TYPE()%></td>
-						<td><%=recLBean.getEMPLOYMENT_CONDITION()%></td>
-						<td><%=recLBean.getRECRUIT_INFO_ID()%></td>
-						<td><%=recLBean.getJOB_ID()%></td>
-						<td><%=recLBean.getCHECK_CAREER()%></td>
+					
+						<td><%=pjBean.getPortfolio_id()%></td>
+						<td><%=pjBean.getPortfolio_name()%></td>
+						<td><%=pjBean.getCustomer_id()%></td>
+						<td><%=pjBean.getProject_id()%></td>
+						<td><%=pjBean.getProject_name()%></td>
+						<td><%=pjBean.getProject_start_date()%></td>
+						<td><%=pjBean.getProject_end_date()%></td>
+						<td><%=pjBean.getParticipation_period()%></td>
+						<td><%=pjBean.getBriefing()%></td>
+						<td><%=pjBean.getProject_job()%></td>
+																	<!-- 수정 -->
 					</tr>
 					<%
 						}
