@@ -21,7 +21,7 @@
 <body>
 	<h2>자기소개서</h2>
 	
-	<button onclick="">등록</button>
+	<button onclick=""><a href="<%=request.getContextPath()%>/customer/getinfo/regist_resum.jsp">등록</a></button>
 	
 	<div class="tbl-header">
 		</div>
