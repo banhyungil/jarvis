@@ -31,8 +31,9 @@
 						<th>RESUME_REV_DATE</th>
 						<th>FEEDBACK</th>					
 					</tr>
-					<%
-						ArrayList<Bean> list = (ArrayList<Bean>)request.getAttribute("list");
+					<%	
+					CustomerBean cusBean = (CustomerBean)session.getAttribute("cusBean");   
+					ArrayList<Bean> list = resumDao.getList(cusBean.getCustomer_id());
 						for (Bean b : (ArrayList<Bean>) list) {
 							ResumesBean resuBean = (ResumesBean)b;
 					%>

@@ -3,7 +3,7 @@
     <%@ page import="java.util.ArrayList" %>
     <%@ page import="bean.*" %>
      <%@ page import="dao.*" %>
-     <jsp:useBean id="carDao" class="dao.CareerDao"></jsp:useBean> <!-- 해당dao로 -->
+     <jsp:useBean id="carDao" class="dao.CareerDao"></jsp:useBean> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,12 +29,12 @@
 					</tr>
 					<%
 					CustomerBean cusBean = (CustomerBean)session.getAttribute("cusBean");   
-						ArrayList<Bean> list = carDao.getList(cusBean.getCustomer_id()); //해당 dao로 get list 후 dao도 get list복사해서 추가후 수정
+						ArrayList<Bean> list = carDao.getList(cusBean.getCustomer_id());
 						for (Bean b : (ArrayList<Bean>) list) {
-							CareerBean carBean = (CareerBean)b;		//해당 bean으로 받아서 고침
+							CareerBean carBean = (CareerBean)b;		
 					%>
 					<tr>
-						<td><%=carBean.getCAREER_ID()%></td>		<!-- 컬럼이랑 맞추면댐 -->
+						<td><%=carBean.getCAREER_ID()%></td>		
 						<td><%=carBean.getCAREER_JOB()%></td>
 						<td><%=carBean.getCAREER_POSITION()%></td>
 						<td><%=carBean.getCAREER_COMPANY()%></td>
