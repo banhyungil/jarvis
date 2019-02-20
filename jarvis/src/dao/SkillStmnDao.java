@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import bean.Bean;
+import bean.SkillNcsBean;
 import bean.SkillStmnBean;
 
 
@@ -29,6 +30,38 @@ public class SkillStmnDao extends Dao {
 				
 														
 				list.add(sksBean);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
+
+	
+	public ArrayList<Bean> getList(String cus_id) {
+		connect();
+		String sql = "select a.customer_id, a.skill_stmn_id, b.ncs_id, b.ncs_name, b.ncs_level, b.ncs_class from skill_stmn a, ncs b where a.ncs_id=b.ncs_id and a.customer_id=? order by 1;";
+		ArrayList<Bean> list = new ArrayList<Bean>();
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cus_id);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				SkillNcsBean skncsBean = new SkillNcsBean();
+				
+				skncsBean.setSKILL_STMN_ID(rs.getInt("SKILL_STMN_ID"));
+				skncsBean.setNCS_ID(rs.getInt("NCS_ID"));
+				skncsBean.setNCS_NAME(rs.getString("NCS_NAME"));
+				skncsBean.setNCS_LEVEL(rs.getInt("NCS_LEVEL"));
+				skncsBean.setNCS_CLASS(rs.getString("NCS_CLASS"));
+				skncsBean.setCUSTOMER_ID(rs.getString("CUSTOMER_ID"));
+				
+														
+				list.add(skncsBean);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

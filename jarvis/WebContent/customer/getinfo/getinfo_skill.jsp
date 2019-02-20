@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@ page import="java.util.ArrayList" %>
     <%@ page import="bean.*" %>
+    <%@ page import="dao.*" %>
+    <jsp:useBean id="skillncsDao" class="dao.SkillStmnDao"></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,38 +11,35 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>채용상세정보확인</h2>
+	<h2>보유기술명세서</h2>
 	<div class="tbl-header">
 		</div>
 		<div class="tbl-content">
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
 					<tr>
-						<th>id</th>
-						<th>PREFERENTIAL_TREATMENT</th>
-						<th>RECRUITMENT_NUMBER</th>
-						<th>SALARY</th>
-						<th>EMPLOYMENT_TYPE</th>	
-						<th>EMPLOYMENT_CONDITION</th>
-						<th>RECRUIT_INFO_ID</th>
-						<th>JOB_ID</th>
-						<th>CHECK_CAREER</th>					
+						<th>ID</th>
+						<th>NCS_ID</th>
+						<th>NCS_NAME</th>
+						<th>NCS_LEVEL</th>
+						<th>NCS_CLASS</th>	
+						<th>CUSTOMER_ID</th>
+										
 					</tr>
 					<%
-						ArrayList<Bean> list = (ArrayList<Bean>)request.getAttribute("list");
-						for (Bean b : (ArrayList<Bean>) list) {
-							RecruitlistBean recLBean = (RecruitlistBean)b;
+					CustomerBean cusBean4 = (CustomerBean)session.getAttribute("cusBean");   
+					ArrayList<Bean> list4 = skillncsDao.getList(cusBean4.getCustomer_id());
+						for (Bean b : (ArrayList<Bean>) list4) {
+							SkillNcsBean skncsBean = (SkillNcsBean)b;
 					%>
 					<tr>
-						<td><%=recLBean.getRECRUIT_LIST_ID()%></td>
-						<td><%=recLBean.getPREFERENTIAL_TREATMENT()%></td>
-						<td><%=recLBean.getRECRUITMENT_NUMBER()%></td>
-						<td><%=recLBean.getSALARY()%></td>
-						<td><%=recLBean.getEMPLOYMENT_TYPE()%></td>
-						<td><%=recLBean.getEMPLOYMENT_CONDITION()%></td>
-						<td><%=recLBean.getRECRUIT_INFO_ID()%></td>
-						<td><%=recLBean.getJOB_ID()%></td>
-						<td><%=recLBean.getCHECK_CAREER()%></td>
+						<td><%=skncsBean.getSKILL_STMN_ID()%></td>
+						<td><%=skncsBean.getNCS_ID()%></td>
+						<td><%=skncsBean.getNCS_NAME()%></td>
+						<td><%=skncsBean.getNCS_LEVEL()%></td>
+						<td><%=skncsBean.getNCS_CLASS()%></td>
+						<td><%=skncsBean.getCUSTOMER_ID()%></td>
+					
 					</tr>
 					<%
 						}
