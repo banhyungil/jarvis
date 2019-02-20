@@ -3,7 +3,7 @@
     <%@ page import="java.util.ArrayList" %>
     <%@ page import="bean.*" %>
      <%@ page import="dao.*" %>
-     <jsp:useBean id="carDao" class="dao.CareerDao"></jsp:useBean> 
+     <jsp:useBean id="carDao" class="dao.CareerDao"></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +15,12 @@
 	<div class="tbl-header">
 		</div>
 		<div class="tbl-content">
-			<table cellpadding="0" cellspacing="0" border="0">
+			<table cellpadding="0" cellspacing="0" border="0">		<!-- sa -->
 				<tbody>
 					<tr>
-						<th>ID</th>		<!-- 컬럼 -->	
+						<th>ID</th>
 						<th>CAREER_JOB</th>
-						<th>CAREER_POSITION</th>	<!-- sa -->
+						<th>CAREER_POSITION</th>
 						<th>CAREER_COMPANY</th>
 						<th>CAREER_START_DATE</th>	
 						<th>CAREER_END_DATE</th>
@@ -28,13 +28,13 @@
 						<th>CUSTOMER_ID</th>			
 					</tr>
 					<%
-					CustomerBean cusBean = (CustomerBean)session.getAttribute("cusBean");   
+					CustomerBean cusBean = (CustomerBean)session.getAttribute("cusBean");
 						ArrayList<Bean> list = carDao.getList(cusBean.getCustomer_id());
 						for (Bean b : (ArrayList<Bean>) list) {
-							CareerBean carBean = (CareerBean)b;		
+							CareerBean carBean = (CareerBean)b;
 					%>
 					<tr>
-						<td><%=carBean.getCAREER_ID()%></td>		
+						<td><%=carBean.getCAREER_ID()%></td>
 						<td><%=carBean.getCAREER_JOB()%></td>
 						<td><%=carBean.getCAREER_POSITION()%></td>
 						<td><%=carBean.getCAREER_COMPANY()%></td>
