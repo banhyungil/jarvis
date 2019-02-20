@@ -68,8 +68,7 @@
 						}
 					%>
 				</tbody>
-			</table>
-			<input type="
+			</table>			
 		</div>
 </body>
 </html>

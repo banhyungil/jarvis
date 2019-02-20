@@ -24,7 +24,7 @@ function double_check(){
 		<input type="hidden" name="action" value="insert">
 		<div class="container">
 			<input type="hidden" name="member_type" value="company"> <label
-				for="COMPANY_ID"><b>아이디</b></label> <input type="text"
+				for="COMPANY_ID"><b>아이디</b></label> <br><input type="text"
 				class="primary_id" placeholder="Enter id" name="COMPANY_ID" required>
 			<input type="button" class=double_btn value="중복확인" onclick="double_check()">
 			<label for="COMPANY_PW"><b>비밀번호</b></label> <input type="password"

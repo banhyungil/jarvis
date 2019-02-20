@@ -2,7 +2,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email], input[type=date] {
+input[type=text], input[type=password], input[type=email], input[type=date], input[type=number] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -12,16 +12,16 @@ input[type=text], input[type=password], input[type=email], input[type=date] {
 }
 
 input[type=text].primary_id{
-	width: 88%;
+	width: 90%;
 }
 input[type=button]{
-	width: 8%;
+	width: 9%;
 	padding: 15px;
   margin: 5px 0 22px 0;
   font-size:16px;
 }
 /* Add a background color when the inputs get focus */
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=date]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=date]:focus , input[type=number]:focus{
   background-color: #ddd;
   outline: none;
 }

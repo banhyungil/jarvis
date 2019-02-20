@@ -78,17 +78,16 @@ public class JobApplicationDao extends Dao {
 		jobaBean = (JobApplicationBean)bean;
 		String sql = "insert into job_application(JOB_APPLICATION_ID, EMPLOYMENT_TYPE, WELFARE_LEVEL, WORKING_AREA, CUSTOMER_ID, REQ_SALARY,"
 				+ "JOB_ID)"
-				+ " values(?, ?, ?, ?, ?, ?, ?)";
+				+ " values(job_app_seq.nextval, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,  jobaBean.getJOB_APPLICATION_ID());
-			pstmt.setString(2,  jobaBean.getEMPLOYMENT_TYPE());
-			pstmt.setString(3,  jobaBean.getWELFARE_LEVEL());
-			pstmt.setString(4,  jobaBean.getWORKING_AREA());
-			pstmt.setString(5,  jobaBean.getCUSTOMER_ID());
-			pstmt.setInt(6,  jobaBean.getREQ_SALARY());
-			pstmt.setInt(7,  jobaBean.getJOB_ID());
+			pstmt.setString(1,  jobaBean.getEMPLOYMENT_TYPE());
+			pstmt.setString(2,  jobaBean.getWELFARE_LEVEL());
+			pstmt.setString(3,  jobaBean.getWORKING_AREA());
+			pstmt.setString(4,  jobaBean.getCUSTOMER_ID());
+			pstmt.setInt(5,  jobaBean.getREQ_SALARY());
+			pstmt.setInt(6,  jobaBean.getJOB_ID());
 			
 			
 			pstmt.executeUpdate();

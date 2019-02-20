@@ -43,7 +43,7 @@ public class SkillStmnDao extends Dao {
 	
 	public ArrayList<Bean> getList(String cus_id) {
 		connect();
-		String sql = "select a.customer_id, a.skill_stmn_id, b.ncs_id, b.ncs_name, b.ncs_level, b.ncs_class from skill_stmn a, ncs b where a.ncs_id=b.ncs_id and a.customer_id=? order by 1;";
+		String sql = "select a.customer_id, a.skill_stmn_id, b.ncs_id, b.ncs_name, b.ncs_level, b.ncs_class from skill_stmn a, ncs b where a.ncs_id=b.ncs_id and a.customer_id=? order by 1";
 		ArrayList<Bean> list = new ArrayList<Bean>();
 
 		try {

@@ -28,7 +28,6 @@
 						<th>PROJECT_JOB</th>	
 						<th>PARTICIPATION_PERIOD</th>
 						<th>BRIEFING</th>
-						<th>PROJECT_JOB</th>
 										
 					</tr>
 					<%	
@@ -46,9 +45,10 @@
 						<td><%=pjBean.getProject_name()%></td>
 						<td><%=pjBean.getProject_start_date()%></td>
 						<td><%=pjBean.getProject_end_date()%></td>
+						<td><%=pjBean.getProject_job()%></td>
 						<td><%=pjBean.getParticipation_period()%></td>
 						<td><%=pjBean.getBriefing()%></td>
-						<td><%=pjBean.getProject_job()%></td>
+
 																	<!-- 수정 -->
 					</tr>
 					<%

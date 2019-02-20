@@ -31,25 +31,20 @@
    <%@ include file= "getinfo/getinfo_resum.jsp"%>
 </div> 
 
-
-<!--
-<div id="Seoul" class="getinfo/tabcontent">
+<div id="Seoul" class="tabcontent">
   <h3>포트폴리오</h3>
-   <//%@ include file="getinfo/getinfo_proj.jsp" %> 
+   <%@ include file="getinfo/getinfo_proj.jsp" %> 
 </div>
 
-<div id="London" class="getinfo/tabcontent">
+<div id="London" class="tabcontent">
   <h3>자격증</h3>
-   <//%@ include file= "getinfo_cert.jsp"%>
+   <%@ include file= "getinfo/getinfo_cert.jsp"%>
 </div>
 
-
-
-<div id="Tokyo" class="getinfo/tabcontent">
+<div id="Tokyo" class="tabcontent">
   <h3>보유기술명세서</h3>
-   <//%@ //include file= "getinfo_skill.jsp"%>
+   <%@ include file= "getinfo/getinfo_skill.jsp"%>
 </div>
--->
 
 <div id="monaco" class="tabcontent">
   <h3>메인으로</h3>
