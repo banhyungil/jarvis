@@ -48,7 +48,8 @@ public class ResumesDao extends Dao {
 
 	public ArrayList<Bean> getList(String cus_id) {
 		connect();
-		String sql = "select * from resumes where customer_id=? order by 1";
+		String sql = "select resume_id, substr(motive,1,7) motive, substr(personality,1,7) personality, substr(background,1,7) background, substr(social,1,7) social, substr(school,1,7) school, substr(plan,1,7) plan, employee_id, customer_id, company_id, resume_rev_date, feedback " + 
+				"from resumes where customer_id=? order by resume_id";
 		ArrayList<Bean> list = new ArrayList<Bean>();
 
 		try {
