@@ -65,7 +65,8 @@ public class CustomerDao extends Dao{
 				cusBean.setCustomer_id(rs.getString("CUSTOMER_ID"));
 				cusBean.setCUSTOMER_NAME(rs.getString("CUSTOMER_NAME"));
 				cusBean.setCUSTOMER_PW(rs.getString("CUSTOMER_PW"));
-				cusBean.setGENDER(rs.getString("GENDER"));				
+				cusBean.setGENDER(rs.getString("GENDER"));	
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
