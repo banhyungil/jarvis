@@ -9,7 +9,6 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/getinfo.js"></script>
 </head>
 <body>
-
 <h2>정보조회</h2>
 
 <div class="tab">
@@ -26,6 +25,12 @@
   <h3>경력</h3>
    <%@ include file= "getinfo/getinfo_career.jsp"%>
 </div>
+
+<div id="Pusan" class="tabcontent">
+  <h3>자소서</h3>
+   <%@ include file= "getinfo/getinfo_resum.jsp"%>
+</div> 
+
 
 <!--
 <div id="Seoul" class="getinfo/tabcontent">
@@ -44,11 +49,7 @@
   <h3>보유기술명세서</h3>
    <//%@ //include file= "getinfo_skill.jsp"%>
 </div>
-
-<div id="Pusan" class="getinfo/tabcontent">
-  <h3>자소서</h3>
-   <//%@ //include file= "getinfo_resum.jsp"%>
-</div> -->
+-->
 
 <div id="monaco" class="tabcontent">
   <h3>메인으로</h3>
