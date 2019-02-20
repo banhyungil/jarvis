@@ -25,26 +25,26 @@
 			<label for="customer_id"><b>아이디</b></label> <br>
 			<input type="text" class="primary_id" placeholder="Enter id" name="customer_id"> 
 			<input type="button" class=double_btn value="중복확인" onclick="double_check()"> 
-			<label for="customer_pw"><b>비밀번호</b></label> <input type="password"
-				placeholder="Enter Password" name="customer_pw"> <label
-				for="pw_repeat"><b>비밀번호 확인</b></label> <input type="password"
+			<label for="CUSTOMER_PW"><b>비밀번호</b></label> 
+			<input type="password" placeholder="Enter Password" name="CUSTOMER_PW"> 
+			<label for="pw_repeat"><b>비밀번호 확인</b></label> <input type="password"
 				placeholder="Repeat Password" name="pw_repeat"> <label
-				for="customer_name"><b>이름</b></label> <input type="text"
-				placeholder="Enter Name" name="customer_name"> <label
-				for="birth"><b>생년월일</b></label><br> <input type="date"
-				name="birth" required><br> <label for="customer_email"><b>이메일</b></label><br>
-			<input type="email" placeholder="Enter Email" name="customer_email"><br>
+				for="CUSTOMER_NAME"><b>이름</b></label> <input type="text"
+				placeholder="Enter Name" name="CUSTOMER_NAME"> <label
+				for="BIRTH"><b>생년월일</b></label><br> <input type="date"
+				name="BIRTH" ><br> <label for="CUSTOMER_EMAIL"><b>이메일</b></label><br>
+			<input type="email" placeholder="Enter Email" name="CUSTOMER_EMAIL"><br>
 
-			<label for="customer_contact"><b>연락처</b></label> <input type="text"
-				placeholder="Enter Contact" name="customer_contact"> <label
-				for="address"><b>주소</b></label> <input type="text"
-				placeholder="Enter Address" name="address"> <label
-				for="academic"><b>학력</b></label> <input type="text"
-				placeholder="Enter academic" name="academic"> <label>
-				<input type="radio" name="check_army" value="y" checked> 군필
-				<input type="radio" name="check_army" value="n"> 미필<br>
-			</label> <label> <input type="radio" name="gender" value="male"
-				checked> 남성 <input type="radio" name="gender" value="female">
+			<label for="CUSTOMER_CONTACT"><b>연락처</b></label> <input type="text"
+				placeholder="Enter Contact" name="CUSTOMER_CONTACT"> <label
+				for="ADDRESS"><b>주소</b></label> <input type="text"
+				placeholder="Enter Address" name="ADDRESS"> <label
+				for="ACADEMIC"><b>학력</b></label> <input type="text"
+				placeholder="Enter academic" name="ACADEMIC"> <label>
+				<input type="radio" name="CHECK_ARMY" value="y" checked> 군필
+				<input type="radio" name="CHECK_ARMY" value="n"> 미필<br>
+			</label> <label> <input type="radio" name="GENDER" value="m"
+				checked> 남성 <input type="radio" name="GENDER" value="f">
 				여성<br>
 			</label>
 

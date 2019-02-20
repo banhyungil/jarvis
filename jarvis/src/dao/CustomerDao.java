@@ -22,17 +22,17 @@ public class CustomerDao extends Dao{
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				cusBean = new CustomerBean();
-				cusBean.setACADEMIC("ACADEMIC");
+				cusBean.setACADEMIC(rs.getString("ACADEMIC"));
 				cusBean.setADDRESS(rs.getString("address"));
 				cusBean.setBIRTH(rs.getString("birth"));
-				cusBean.setCHECK_ARMY("check_army");
-				cusBean.setCHECK_JOB_SEEKER("check_job_seekger");
-				cusBean.setCUSTOMER_CONTACT("customer_contact");
-				cusBean.setCUSTOMER_EMAIL("customer_email");
-				cusBean.setCustomer_id("Customer_id");
-				cusBean.setCUSTOMER_NAME("CUSTOMER_NAME");
-				cusBean.setCUSTOMER_PW("CUSTOMER_PW");
-				cusBean.setGENDER("CUSTOMER_PW");	
+				cusBean.setCHECK_ARMY(rs.getString("check_army"));
+				cusBean.setCHECK_JOB_SEEKER(rs.getString("check_job_seekger"));
+				cusBean.setCUSTOMER_CONTACT(rs.getString("customer_contact"));
+				cusBean.setCUSTOMER_EMAIL(rs.getString("customer_email"));
+				cusBean.setCustomer_id(rs.getString("Customer_id"));
+				cusBean.setCUSTOMER_NAME(rs.getString("CUSTOMER_NAME"));
+				cusBean.setCUSTOMER_PW(rs.getString("CUSTOMER_PW"));
+				cusBean.setGENDER(rs.getString("CUSTOMER_PW"));	
 				
 				list.add(cusBean);
 			}
@@ -55,17 +55,17 @@ public class CustomerDao extends Dao{
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				cusBean.setACADEMIC("ACADEMIC");
-				cusBean.setADDRESS(rs.getString("address"));
-				cusBean.setBIRTH(rs.getString("birth"));
-				cusBean.setCHECK_ARMY("check_army");
-				cusBean.setCHECK_JOB_SEEKER("check_job_seekger");
-				cusBean.setCUSTOMER_CONTACT("customer_contact");
-				cusBean.setCUSTOMER_EMAIL("customer_email");
-				cusBean.setCustomer_id("Customer_id");
-				cusBean.setCUSTOMER_NAME("CUSTOMER_NAME");
-				cusBean.setCUSTOMER_PW("CUSTOMER_PW");
-				cusBean.setGENDER("CUSTOMER_PW");				
+				cusBean.setACADEMIC(rs.getString("ACADEMIC"));
+				cusBean.setADDRESS(rs.getString("ADDRESS"));
+				cusBean.setBIRTH(rs.getString("BIRTH"));
+				cusBean.setCHECK_ARMY(rs.getString("CHECK_ARMY"));
+				cusBean.setCHECK_JOB_SEEKER(rs.getString("CHECK_JOB_SEEKER"));
+				cusBean.setCUSTOMER_CONTACT(rs.getString("customer_contact"));
+				cusBean.setCUSTOMER_EMAIL(rs.getString("customer_email"));
+				cusBean.setCustomer_id(rs.getString("Customer_id"));
+				cusBean.setCUSTOMER_NAME(rs.getString("CUSTOMER_NAME"));
+				cusBean.setCUSTOMER_PW(rs.getString("CUSTOMER_PW"));
+				cusBean.setGENDER(rs.getString("gender"));				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
