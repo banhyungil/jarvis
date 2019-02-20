@@ -27,7 +27,7 @@
 			채용정보</button>
 		<button class="tablinks" onclick="openCity(event, 'Tokyo')">채용이력</button>
 		<button class="tablinks" onclick="openCity(event, 'Monaco')">
-			<a href="main.jsp">메인으로</a>
+			<a href="cus_main.jsp">메인으로</a>
 		</button>
 	</div>
 

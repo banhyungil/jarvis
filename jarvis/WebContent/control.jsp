@@ -31,7 +31,7 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 			pageContext.forward("/company/regit_member_com.jsp");
 		}
 		
-	}else if(action.equals("insert")){
+	}else if(action.equals("insert")){			//회원가입 버튼을 눌렀을 때
 		if(member_type.equals("customer")){			
 			dao = new CustomerDao();
 			dao.insert(cusBean);			
@@ -47,7 +47,7 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 		if(confirm('회원가입이 성공하였습니다.')){		
 		</script> 
 		<% 
-		response.sendRedirect("control.jsp?action=login");
+		response.sendRedirect("login.jsp");
 		%>
 		<script>
 		}

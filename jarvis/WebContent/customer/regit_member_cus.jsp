@@ -17,7 +17,7 @@
 </head>
 <body>
 	<h1 align="center">고객 회원가입</h1>
-	<form class="modal-content" name=regist_form action="control.jsp">
+	<form class="modal-content" name=regist_form action="<%=request.getContextPath()%>/control.jsp">
 
 		<input type="hidden" name="action" value="insert">
 		<div class="container">
