@@ -23,16 +23,16 @@ public class CustomerDao extends Dao{
 			while(rs.next()) {
 				cusBean = new CustomerBean();
 				cusBean.setACADEMIC(rs.getString("ACADEMIC"));
-				cusBean.setADDRESS(rs.getString("address"));
-				cusBean.setBIRTH(rs.getString("birth"));
-				cusBean.setCHECK_ARMY(rs.getString("check_army"));
-				cusBean.setCHECK_JOB_SEEKER(rs.getString("check_job_seekger"));
-				cusBean.setCUSTOMER_CONTACT(rs.getString("customer_contact"));
-				cusBean.setCUSTOMER_EMAIL(rs.getString("customer_email"));
-				cusBean.setCustomer_id(rs.getString("Customer_id"));
+				cusBean.setADDRESS(rs.getString("ADDRESS"));
+				cusBean.setBIRTH(rs.getString("BIRTH"));
+				cusBean.setCHECK_ARMY(rs.getString("CHECK_ARMY"));
+				cusBean.setCHECK_JOB_SEEKER(rs.getString("CHECK_JOB_SEEKER"));
+				cusBean.setCUSTOMER_CONTACT(rs.getString("CUSTOMER_CONTACT"));
+				cusBean.setCUSTOMER_EMAIL(rs.getString("CUSTOMER_EMAIL"));
+				cusBean.setCustomer_id(rs.getString("CUSTOMER_ID"));
 				cusBean.setCUSTOMER_NAME(rs.getString("CUSTOMER_NAME"));
 				cusBean.setCUSTOMER_PW(rs.getString("CUSTOMER_PW"));
-				cusBean.setGENDER(rs.getString("CUSTOMER_PW"));	
+				cusBean.setGENDER(rs.getString("GENDER"));		
 				
 				list.add(cusBean);
 			}
@@ -48,7 +48,7 @@ public class CustomerDao extends Dao{
 	@Override
 	public Bean getSingle(String id) {
 		connect();
-		String sql = "select * from customers where cusomter_id=?";
+		String sql = "select * from customers where customer_id=?";
 		CustomerBean cusBean = new CustomerBean();
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -60,12 +60,12 @@ public class CustomerDao extends Dao{
 				cusBean.setBIRTH(rs.getString("BIRTH"));
 				cusBean.setCHECK_ARMY(rs.getString("CHECK_ARMY"));
 				cusBean.setCHECK_JOB_SEEKER(rs.getString("CHECK_JOB_SEEKER"));
-				cusBean.setCUSTOMER_CONTACT(rs.getString("customer_contact"));
-				cusBean.setCUSTOMER_EMAIL(rs.getString("customer_email"));
-				cusBean.setCustomer_id(rs.getString("Customer_id"));
+				cusBean.setCUSTOMER_CONTACT(rs.getString("CUSTOMER_CONTACT"));
+				cusBean.setCUSTOMER_EMAIL(rs.getString("CUSTOMER_EMAIL"));
+				cusBean.setCustomer_id(rs.getString("CUSTOMER_ID"));
 				cusBean.setCUSTOMER_NAME(rs.getString("CUSTOMER_NAME"));
 				cusBean.setCUSTOMER_PW(rs.getString("CUSTOMER_PW"));
-				cusBean.setGENDER(rs.getString("gender"));				
+				cusBean.setGENDER(rs.getString("GENDER"));				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
