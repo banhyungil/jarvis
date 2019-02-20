@@ -46,6 +46,42 @@ public class ResumesDao extends Dao {
 		return list;
 	}
 
+	public ArrayList<Bean> getList(String cus_id) {
+		connect();
+		String sql = "select * from resumes where customer_id=? order by 1";
+		ArrayList<Bean> list = new ArrayList<Bean>();
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cus_id);					//수정
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				resuBean = new ResumesBean();
+				resuBean.setResume_id(rs.getInt("resume_id"));
+				resuBean.setMotive(rs.getString("motive"));
+				resuBean.setPersonality(rs.getString("personality"));
+				resuBean.setBackground(rs.getString("background"));
+				resuBean.setSocial(rs.getString("social"));
+				resuBean.setSchool(rs.getString("school"));
+				resuBean.setPlan(rs.getString("plan"));
+				resuBean.setEmployee_id(rs.getString("employee_id"));
+				resuBean.setCustomer_id(rs.getString("customer_id"));
+				resuBean.setCompany_id(rs.getString("company_id"));
+				resuBean.setResume_rev_date(rs.getString("resume_rev_date"));
+				resuBean.setFeedback(rs.getString("feedback"));
+								
+				list.add(resuBean);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return list;
+	}
+
+	
 	
 	@Override
 	public Bean getSingle(int id) {
