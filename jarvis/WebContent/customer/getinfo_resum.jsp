@@ -18,7 +18,7 @@
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
 					<tr>
-						<th>ID</th>
+						<th>ID</th> <!-- 컬럼 -->
 						<th>MOTIVE</th>
 						<th>PERSONALITY</th>
 						<th>BACKGROUND</th>
