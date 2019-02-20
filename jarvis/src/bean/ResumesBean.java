@@ -2,99 +2,98 @@ package bean;
 
 public class ResumesBean extends Bean {
 
-	int RESUME_ID;
-	String MOTIVE;
-	String PERSONALITY;
-	String BACKGROUND;
-	String SOCIAL;
-	String SCHOOL;
-	String PLAN;
-	String EMPLOYEE_ID;
-	String CUSTOMER_ID;
-	String COMPANY_ID;
-	String RESUME_REV_DATE;
-	String FEEDBACK;
-	
-	public int getRESUME_ID() {
-		return RESUME_ID;
+	int resume_id;
+	String motive;
+	String personality;
+	String background;
+	String social;
+	String school;
+	String plan;
+	String employee_id;
+	String customer_id;
+	String company_id;
+	String resume_rev_date;
+	String feedback;
+	public int getResume_id() {
+		return resume_id;
 	}
-	public void setRESUME_ID(int rESUME_ID) {
-		RESUME_ID = rESUME_ID;
+	public void setResume_id(int resume_id) {
+		this.resume_id = resume_id;
 	}
-	public String getMOTIVE() {
-		return MOTIVE;
+	public String getMotive() {
+		return motive;
 	}
-	public void setMOTIVE(String mOTIVE) {
-		MOTIVE = mOTIVE;
+	public void setMotive(String motive) {
+		this.motive = motive;
 	}
-	public String getPERSONALITY() {
-		return PERSONALITY;
+	public String getPersonality() {
+		return personality;
 	}
-	public void setPERSONALITY(String pERSONALITY) {
-		PERSONALITY = pERSONALITY;
+	public void setPersonality(String personality) {
+		this.personality = personality;
 	}
-	public String getBACKGROUND() {
-		return BACKGROUND;
+	public String getBackground() {
+		return background;
 	}
-	public void setBACKGROUND(String bACKGROUND) {
-		BACKGROUND = bACKGROUND;
+	public void setBackground(String background) {
+		this.background = background;
 	}
-	public String getSOCIAL() {
-		return SOCIAL;
+	public String getSocial() {
+		return social;
 	}
-	public void setSOCIAL(String sOCIAL) {
-		SOCIAL = sOCIAL;
+	public void setSocial(String social) {
+		this.social = social;
 	}
-	public String getSCHOOL() {
-		return SCHOOL;
+	public String getSchool() {
+		return school;
 	}
-	public void setSCHOOL(String sCHOOL) {
-		SCHOOL = sCHOOL;
+	public void setSchool(String school) {
+		this.school = school;
 	}
-	public String getPLAN() {
-		return PLAN;
+	public String getPlan() {
+		return plan;
 	}
-	public void setPLAN(String pLAN) {
-		PLAN = pLAN;
+	public void setPlan(String plan) {
+		this.plan = plan;
 	}
-	public String getEMPLOYEE_ID() {
-		return EMPLOYEE_ID;
+	public String getEmployee_id() {
+		return employee_id;
 	}
-	public void setEMPLOYEE_ID(String eMPLOYEE_ID) {
-		EMPLOYEE_ID = eMPLOYEE_ID;
+	public void setEmployee_id(String employee_id) {
+		this.employee_id = employee_id;
 	}
-	public String getCUSTOMER_ID() {
-		return CUSTOMER_ID;
+	public String getCustomer_id() {
+		return customer_id;
 	}
-	public void setCUSTOMER_ID(String cUSTOMER_ID) {
-		CUSTOMER_ID = cUSTOMER_ID;
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
 	}
-	public String getCOMPANY_ID() {
-		return COMPANY_ID;
+	public String getCompany_id() {
+		return company_id;
 	}
-	public void setCOMPANY_ID(String cOMPANY_ID) {
-		COMPANY_ID = cOMPANY_ID;
+	public void setCompany_id(String company_id) {
+		this.company_id = company_id;
 	}
-	public String getRESUME_REV_DATE() {
-		return RESUME_REV_DATE;
+	public String getResume_rev_date() {
+		return resume_rev_date;
 	}
-	public void setRESUME_REV_DATE(String rESUME_REV_DATE) {
-		RESUME_REV_DATE = rESUME_REV_DATE;
+	public void setResume_rev_date(String resume_rev_date) {
+		this.resume_rev_date = resume_rev_date;
 	}
-	public String getFEEDBACK() {
-		return FEEDBACK;
+	public String getFeedback() {
+		return feedback;
 	}
-	public void setFEEDBACK(String fEEDBACK) {
-		FEEDBACK = fEEDBACK;
+	public void setFeedback(String feedback) {
+		this.feedback = feedback;
 	}
-	
 	@Override
 	public String toString() {
-		return "ResumesBean [RESUME_ID=" + RESUME_ID + ", MOTIVE=" + MOTIVE + ", PERSONALITY=" + PERSONALITY
-				+ ", BACKGROUND=" + BACKGROUND + ", SOCIAL=" + SOCIAL + ", SCHOOL=" + SCHOOL + ", PLAN=" + PLAN
-				+ ", EMPLOYEE_ID=" + EMPLOYEE_ID + ", CUSTOMER_ID=" + CUSTOMER_ID + ", COMPANY_ID=" + COMPANY_ID
-				+ ", RESUME_REV_DATE=" + RESUME_REV_DATE + ", FEEDBACK=" + FEEDBACK + "]";
+		return "ResumesBean [resume_id=" + resume_id + ", motive=" + motive + ", personality=" + personality
+				+ ", background=" + background + ", social=" + social + ", school=" + school + ", plan=" + plan
+				+ ", employee_id=" + employee_id + ", customer_id=" + customer_id + ", company_id=" + company_id
+				+ ", resume_rev_date=" + resume_rev_date + ", feedback=" + feedback + "]";
 	}
-		
+	
+	
 	
 }

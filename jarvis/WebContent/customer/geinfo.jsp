@@ -80,11 +80,42 @@ body {font-family: Arial;}
   <p>Tokyo is the capital of Japan.</p>
 </div>
 
-<div id="Pusan" class="tabcontent">
-  <h3>매칭이력</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
 
+<form action="res_control.jsp">
+<input type="hidden" name="action" value="insert">
+<div id="Pusan" class="tabcontent">
+  <h3>입사동기</h3>
+  <textarea name="motive" rows="10" cols="250">
+      내용을 입력하세요
+  </textarea><br>
+  <h3>성격장단점</h3>
+  <textarea name="personality" rows="10" cols="250">
+      내용을 입력하세요
+  </textarea><br>
+  <h3>성장배경</h3>
+  <textarea name="background" rows="10" cols="250">
+      내용을 입력하세요
+  </textarea><br>
+  <h3>사회생활</h3>
+  <textarea name="social" rows="10" cols="250">
+      내용을 입력하세요
+  </textarea><br>
+  <h3>학교생활</h3>
+  <textarea name="school" rows="10" cols="250">
+      내용을 입력하세요
+  </textarea><br>
+  <h3>입사 후 포부</h3>
+  <textarea name="plan" rows="10" cols="250">
+      내용을 입력하세요
+  </textarea><br>
+  <h3>피드백</h3>
+  <textarea name="feedback" rows="10" cols="250">
+      참고하세요
+  </textarea><br>
+  <input type="submit" class="insert" onclick="alert("저장되었습니다")"><a href="getjob.jsp">저장</a></input>
+  <input type="reset" class="cancel" onclick="alert("취소되었습니다")"><a href="getjob.jsp">취소</a></input>
+</div>
+</form>
 <div id="monaco" class="tabcontent">
   <h3>메인으로</h3>
   <p>Paris is the capital of France.</p> 

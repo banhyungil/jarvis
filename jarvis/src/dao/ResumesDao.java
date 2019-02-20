@@ -22,18 +22,18 @@ public class ResumesDao extends Dao {
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				resuBean = new ResumesBean();
-				resuBean.setRESUME_ID(rs.getInt("RESUME_ID"));
-				resuBean.setMOTIVE(rs.getString("MOTIVE"));
-				resuBean.setPERSONALITY(rs.getString("PERSONALITY"));
-				resuBean.setBACKGROUND(rs.getString("BACKGROUND"));
-				resuBean.setSOCIAL(rs.getString("SOCIAL"));
-				resuBean.setSCHOOL(rs.getString("SCHOOL"));
-				resuBean.setPLAN(rs.getString("PLAN"));
-				resuBean.setEMPLOYEE_ID(rs.getString("EMPLOYEE_ID"));
-				resuBean.setCUSTOMER_ID(rs.getString("CUSTOMER_ID"));
-				resuBean.setCOMPANY_ID(rs.getString("COMPANY_ID"));
-				resuBean.setRESUME_REV_DATE(rs.getString("RESUME_REV_DATE"));
-				resuBean.setFEEDBACK(rs.getString("FEEDBACK"));
+				resuBean.setResume_id(rs.getInt("resume_id"));
+				resuBean.setMotive(rs.getString("motive"));
+				resuBean.setPersonality(rs.getString("personality"));
+				resuBean.setBackground(rs.getString("background"));
+				resuBean.setSocial(rs.getString("social"));
+				resuBean.setSchool(rs.getString("school"));
+				resuBean.setPlan(rs.getString("plan"));
+				resuBean.setEmployee_id(rs.getString("employee_id"));
+				resuBean.setCustomer_id(rs.getString("customer_id"));
+				resuBean.setCompany_id(rs.getString("company_id"));
+				resuBean.setResume_rev_date(rs.getString("resume_rev_date"));
+				resuBean.setFeedback(rs.getString("feedback"));
 								
 				list.add(resuBean);
 			}
@@ -57,18 +57,18 @@ public class ResumesDao extends Dao {
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				resuBean.setRESUME_ID(rs.getInt("RESUME_ID"));
-				resuBean.setMOTIVE(rs.getString("MOTIVE"));
-				resuBean.setPERSONALITY(rs.getString("PERSONALITY"));
-				resuBean.setBACKGROUND(rs.getString("BACKGROUND"));
-				resuBean.setSOCIAL(rs.getString("SOCIAL"));
-				resuBean.setSCHOOL(rs.getString("SCHOOL"));
-				resuBean.setPLAN(rs.getString("PLAN"));
-				resuBean.setEMPLOYEE_ID(rs.getString("EMPLOYEE_ID"));
-				resuBean.setCUSTOMER_ID(rs.getString("CUSTOMER_ID"));
-				resuBean.setCOMPANY_ID(rs.getString("COMPANY_ID"));
-				resuBean.setRESUME_REV_DATE(rs.getString("RESUME_REV_DATE"));
-				resuBean.setFEEDBACK(rs.getString("FEEDBACK"));
+				resuBean.setResume_id(rs.getInt("resume_id"));
+				resuBean.setMotive(rs.getString("motive"));
+				resuBean.setPersonality(rs.getString("personality"));
+				resuBean.setBackground(rs.getString("background"));
+				resuBean.setSocial(rs.getString("social"));
+				resuBean.setSchool(rs.getString("school"));
+				resuBean.setPlan(rs.getString("plan"));
+				resuBean.setEmployee_id(rs.getString("employee_id"));
+				resuBean.setCustomer_id(rs.getString("customer_id"));
+				resuBean.setCompany_id(rs.getString("company_id"));
+				resuBean.setResume_rev_date(rs.getString("resume_rev_date"));
+				resuBean.setFeedback(rs.getString("feedback"));
 				
 			}
 		} catch (SQLException e) {
@@ -92,18 +92,18 @@ public class ResumesDao extends Dao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1,  resuBean.getRESUME_ID());
-			pstmt.setString(2,  resuBean.getMOTIVE());
-			pstmt.setString(3,  resuBean.getPERSONALITY());
-			pstmt.setString(4,  resuBean.getBACKGROUND());
-			pstmt.setString(5,  resuBean.getSOCIAL());
-			pstmt.setString(6,  resuBean.getSCHOOL());
-			pstmt.setString(7,  resuBean.getPLAN());
-			pstmt.setString(8,  resuBean.getEMPLOYEE_ID());
-			pstmt.setString(9,  resuBean.getCUSTOMER_ID());
-			pstmt.setString(10,  resuBean.getCOMPANY_ID());
-			pstmt.setString(11,  resuBean.getRESUME_REV_DATE());
-			pstmt.setString(12,  resuBean.getFEEDBACK());
+			pstmt.setInt(1,  resuBean.getResume_id());
+			pstmt.setString(2,  resuBean.getMotive());
+			pstmt.setString(3,  resuBean.getPersonality());
+			pstmt.setString(4,  resuBean.getBackground());
+			pstmt.setString(5,  resuBean.getSocial());
+			pstmt.setString(6,  resuBean.getSchool());
+			pstmt.setString(7,  resuBean.getPlan());
+			pstmt.setString(8,  resuBean.getEmployee_id());
+			pstmt.setString(9,  resuBean.getCustomer_id());
+			pstmt.setString(10,  resuBean.getCompany_id());
+			pstmt.setString(11,  resuBean.getResume_rev_date());
+			pstmt.setString(12,  resuBean.getFeedback());
 			
 			
 			pstmt.executeUpdate();
@@ -128,18 +128,19 @@ public class ResumesDao extends Dao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1,  resuBean.getMOTIVE());
-			pstmt.setString(2,  resuBean.getPERSONALITY());
-			pstmt.setString(3,  resuBean.getBACKGROUND());
-			pstmt.setString(4,  resuBean.getSOCIAL());
-			pstmt.setString(5,  resuBean.getSCHOOL());
-			pstmt.setString(6,  resuBean.getPLAN());
-			pstmt.setString(7,  resuBean.getEMPLOYEE_ID());
-			pstmt.setString(8,  resuBean.getCUSTOMER_ID());
-			pstmt.setString(9,  resuBean.getCOMPANY_ID());
-			pstmt.setString(10,  resuBean.getRESUME_REV_DATE());
-			pstmt.setString(11,  resuBean.getFEEDBACK());
-			pstmt.setInt(12,  resuBean.getRESUME_ID());
+			pstmt.setInt(1,  resuBean.getResume_id());
+			pstmt.setString(2,  resuBean.getMotive());
+			pstmt.setString(3,  resuBean.getPersonality());
+			pstmt.setString(4,  resuBean.getBackground());
+			pstmt.setString(5,  resuBean.getSocial());
+			pstmt.setString(6,  resuBean.getSchool());
+			pstmt.setString(7,  resuBean.getPlan());
+			pstmt.setString(8,  resuBean.getEmployee_id());
+			pstmt.setString(9,  resuBean.getCustomer_id());
+			pstmt.setString(10,  resuBean.getCompany_id());
+			pstmt.setString(11,  resuBean.getResume_rev_date());
+			pstmt.setString(12,  resuBean.getFeedback());
+			pstmt.setInt(12,  resuBean.getResume_id());
 			
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
