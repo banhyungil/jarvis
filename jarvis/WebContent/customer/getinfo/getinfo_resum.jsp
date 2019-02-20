@@ -9,16 +9,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script>
+	function double_check(){
+		document.regist_form.action.value = "double_check";
+		document.regist_form.submit();
+	}	
+</script>
+
 </head>
 <body>
 	<h2>자기소개서</h2>
+	
+	<button onclick="">등록</button>
+	
 	<div class="tbl-header">
 		</div>
 		<div class="tbl-content">
+			
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
 					<tr>
-						<th>ID</th>
+						<th>ID</th> <!-- sssssss -->
 						<th>MOTIVE</th>
 						<th>PERSONALITY</th>
 						<th>BACKGROUND</th>
@@ -57,6 +69,7 @@
 					%>
 				</tbody>
 			</table>
+			<input type="
 		</div>
 </body>
 </html>

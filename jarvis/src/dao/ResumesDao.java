@@ -123,8 +123,8 @@ public class ResumesDao extends Dao {
 		connect();
 		resuBean = (ResumesBean)bean;
 		String sql = "insert into resumes(RESUME_ID, MOTIVE, PERSONALITY, BACKGROUND, SOCIAL, SCHOOL,"
-				+ "PLAN, EMPLOYEE_ID, CUSTOMER_ID, COMPANY_ID, RESUME_REV_DATE, FEEDBACK)"
-				+ " values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "PLAN, EMPLOYEE_ID)"
+				+ " values(?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -137,12 +137,7 @@ public class ResumesDao extends Dao {
 			pstmt.setString(6,  resuBean.getSchool());
 			pstmt.setString(7,  resuBean.getPlan());
 			pstmt.setString(8,  resuBean.getEmployee_id());
-			pstmt.setString(9,  resuBean.getCustomer_id());
-			pstmt.setString(10,  resuBean.getCompany_id());
-			pstmt.setString(11,  resuBean.getResume_rev_date());
-			pstmt.setString(12,  resuBean.getFeedback());
-			
-			
+						
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
