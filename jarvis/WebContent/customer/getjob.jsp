@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="java.util.*"%>
-<%@page import="bean.*"%>
-<jsp:useBean id="recDao" class="dao.RecruitsDao"></jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="<%=request.getContextPath()%>/css/getjob.css"
+<link href="<%=request.getContextPath()%>/css/getjob.css?aaa"
 	type="text/css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/table_style.css"
 	type="text/css" rel="stylesheet">
@@ -23,51 +20,19 @@
 			채용정보</button>
 		<button class="tablinks" onclick="openCity(event, 'London')">마감전
 			채용정보</button>
-		<button class="tablinks" onclick="openCity(event, 'Paris')">나의
-			채용정보</button>
-		<button class="tablinks" onclick="openCity(event, 'Tokyo')">채용이력</button>
 		<button class="tablinks" onclick="openCity(event, 'Monaco')">
 			<a href="cus_main.jsp">메인으로</a>
 		</button>
 	</div>
 
 	<div id="Seoul" class="tabcontent">
-		<div class="tbl-header">
-		</div>
-		<div class="tbl-content">
-			<table cellpadding="0" cellspacing="0" border="0">
-				<tbody>
-					<tr>
-						<th>id</th>
-						<th>start_date</th>
-						<th>end_date</th>
-						<th>welfare_level</th>
-						<th>company_id</th>					
-					</tr>
-					<%
-						ArrayList<Bean> list = recDao.getList();
-						for (Bean b : (ArrayList<Bean>) list) {
-							RecruitsBean recBean = (RecruitsBean)b;
-					%>
-					<tr>
-						<td><a
-							href="<%=request.getContextPath()%>/customer/cus_control.jsp?action=rec_list&rec_info_id=<%=recBean.getRECRUIT_INFO_ID()%>"><%=recBean.getRECRUIT_INFO_ID()%></a></td>
-						<td><%=recBean.getRECRUIT_START_DATE()%></td>
-						<td><%=recBean.getRECRUIT_END_DATE()%></td>
-						<td><%=recBean.getWELFARE_LEVEL()%></td>
-						<td><%=recBean.getCOMPANY_ID()%></td>
-					</tr>
-					<%
-						}
-					%>
-				</tbody>
-			</table>
-		</div>
+	<h3>전체 채용정보</h3>
+		<%@ include file= "getjob/getjob_all.jsp"%>
 	</div>
 
 	<div id="London" class="tabcontent">
-		<h3>관심있는 채용정보</h3>
-		<p>Paris is the capital of France.</p>
+		<h3>마감전 채용정보</h3>
+		<%@ include file= "getjob/getjob_bef_deadline.jsp"%>
 	</div>
 
 	<div id="Paris" class="tabcontent">

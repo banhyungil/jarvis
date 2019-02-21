@@ -5,6 +5,8 @@
     <%@ page import="java.util.ArrayList"%>
     <jsp:useBean id="jBean" class="bean.JobApplicationBean"></jsp:useBean>
     <jsp:setProperty property="*" name="jBean"/>
+    <jsp:useBean id="resumBean" class="bean.ResumesBean"></jsp:useBean>
+    <jsp:setProperty property="*" name="resumBean"/>
 <!DOCTYPE html>
 <%
 String action = request.getParameter("action");
@@ -20,12 +22,19 @@ if(action.equals("rec_list")){
 	if(table_type.equals("job_app")){
 		JobApplicationDao jDao = new JobApplicationDao();
 		jDao.insert(jBean);
+		%>
+		<script>
+		alert("备流脚没 己傍");
+		</script>
+		<%
+		response.sendRedirect(request.getContextPath() + "/customer/cus_main.jsp");
+	}else if(table_type.equals("resume")){
+		ResumesDao resumDao = new ResumesDao();
+		CustomerBean cusBean = (CustomerBean)session.getAttribute("cusBean");
+		resumBean.setCustomer_id(cusBean.getCustomer_id());
+		resumDao.insert(resumBean);
+		response.sendRedirect(request.getContextPath() + "/customer/getinfo/getinfo_resum.jsp");
 	}
-	%>
-	<script>
-	alert("备流脚没 己傍");
-	</script>
-	<%
-	response.sendRedirect(request.getContextPath() + "/customer/cus_main.jsp");
+	
 }
 %>

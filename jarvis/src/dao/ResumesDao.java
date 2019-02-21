@@ -123,20 +123,19 @@ public class ResumesDao extends Dao {
 		connect();
 		resuBean = (ResumesBean)bean;
 		String sql = "insert into resumes(RESUME_ID, MOTIVE, PERSONALITY, BACKGROUND, SOCIAL, SCHOOL,"
-				+ "PLAN, EMPLOYEE_ID)"
-				+ " values(?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "PLAN, CUSTOMER_ID, EMPLOYEE_ID)"
+				+ " values(resum_seq.nextval, ?, ?, ?, ?, ?, ?, ?, null)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1,  resuBean.getResume_id());
-			pstmt.setString(2,  resuBean.getMotive());
-			pstmt.setString(3,  resuBean.getPersonality());
-			pstmt.setString(4,  resuBean.getBackground());
-			pstmt.setString(5,  resuBean.getSocial());
-			pstmt.setString(6,  resuBean.getSchool());
-			pstmt.setString(7,  resuBean.getPlan());
-			pstmt.setString(8,  resuBean.getEmployee_id());
+			pstmt.setString(1,  resuBean.getMotive());
+			pstmt.setString(2,  resuBean.getPersonality());
+			pstmt.setString(3,  resuBean.getBackground());
+			pstmt.setString(4,  resuBean.getSocial());
+			pstmt.setString(5,  resuBean.getSchool());
+			pstmt.setString(6,  resuBean.getPlan());
+			pstmt.setString(7,  resuBean.getCustomer_id());
 						
 			pstmt.executeUpdate();
 		} catch (SQLException e) {

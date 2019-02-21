@@ -13,12 +13,23 @@ public class RecruitsDao extends Dao {
 	RecruitsBean recrBean = null;
 	@Override
 	public ArrayList<Bean> getList() {
+		return null;
+	}
+
+	public ArrayList<Bean> getList(String condition) {
 		connect();
-		String sql = "select * from recruits order by 1";
+		String sql1 = "select * from recruits order by 1";
+		String sql2 = "select * from recruits where recruit_end_date > sysdate order by 1";		//¸¶°¨Àü Äõ¸®
+		
 		ArrayList<Bean> list = new ArrayList<Bean>();
 
 		try {
-			pstmt = conn.prepareStatement(sql);
+			if(condition.equals("all")) {
+				pstmt = conn.prepareStatement(sql1);
+			} else if (condition.equals("deadline")) {
+				pstmt = conn.prepareStatement(sql2);
+			}
+			
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				recrBean = new RecruitsBean();
@@ -38,7 +49,6 @@ public class RecruitsDao extends Dao {
 		}
 		return list;
 	}
-
 	
 	@Override
 	public Bean getSingle(int id) {
