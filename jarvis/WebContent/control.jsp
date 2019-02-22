@@ -63,7 +63,7 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 				cusBean = null;
 				cusBean = (CustomerBean)cusDao.getSingle(id);
 				session.setAttribute("cusBean", cusBean);
-				response.sendRedirect(request.getContextPath() + "/customer/cus_main.jsp?");	//bean객체를 session에저장해야함			
+				response.sendRedirect(request.getContextPath() + "/customer/cus_main.jsp");	//bean객체를 session에저장해야함			
 			}else {		
 				%>
 				<script>
@@ -79,7 +79,7 @@ charset=EUC-KR" pageEncoding="EUC-KR"%>
 				comBean = null;
 				comBean = (CompanyBean)comDao.getSingle(id);
 				session.setAttribute("comBean", comBean);
-				response.sendRedirect(request.getContextPath() + "/customer/com_main.jsp?");	//bean객체를 session에저장해야함			
+				response.sendRedirect(request.getContextPath() + "/customer/com_main.jsp");	//bean객체를 session에저장해야함			
 			}else {		
 				%>
 				<script>

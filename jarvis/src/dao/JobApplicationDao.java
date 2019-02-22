@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -74,34 +75,35 @@ public class JobApplicationDao extends Dao {
 	
 	@Override
 	public boolean insert(Bean bean) {
-		connect();
-		jobaBean = (JobApplicationBean)bean;
-		String sql = "insert into job_application(JOB_APPLICATION_ID, EMPLOYMENT_TYPE, WELFARE_LEVEL, WORKING_AREA, CUSTOMER_ID, REQ_SALARY,"
-				+ "JOB_ID)"
-				+ " values(job_app_seq.nextval, ?, ?, ?, ?, ?, ?)";
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,  jobaBean.getEMPLOYMENT_TYPE());
-			pstmt.setString(2,  jobaBean.getWELFARE_LEVEL());
-			pstmt.setString(3,  jobaBean.getWORKING_AREA());
-			pstmt.setString(4,  jobaBean.getCUSTOMER_ID());
-			pstmt.setInt(5,  jobaBean.getREQ_SALARY());
-			pstmt.setInt(6,  jobaBean.getJOB_ID());
-			
-			
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			disconnect();
-			return false;
-		}finally {
-			disconnect();
-		}
-		return true;
-	}
+		 connect();
+	        CallableStatement cs;
+	        String sql = "{? = call apply_job(JOB_APP_SEQ.nextval, ?, ?, ?, ?, ?, ?)}";
+	        int result;
+	        
+	        JobApplicationBean jobaBean = (JobApplicationBean)bean;
+	        try {
+	           cs = conn.prepareCall(sql);
+	           cs.registerOutParameter(1, java.sql.Types.INTEGER);
+	           cs.setString(2, jobaBean.getEMPLOYMENT_TYPE());
+	           cs.setString(3, jobaBean.getWELFARE_LEVEL());
+	           cs.setString(4, jobaBean.getWORKING_AREA());
+	           cs.setString(5, jobaBean.getCUSTOMER_ID());
+	           cs.setInt(6, jobaBean.getREQ_SALARY());
+	           cs.setInt(7, jobaBean.getJOB_ID());
+	           cs.execute();
+	           result = cs.getInt(1);         
 
+	           cs.close();
+	        } catch (SQLException e) {
+	           e.printStackTrace();
+	           return false;
+	        }
+	        if(result == 1)		//중복인 경우 true
+	        	return true;
+	        else
+	        	return false;
+	}
+	
 	@Override
 	public boolean update(Bean bean) {
 		connect();
@@ -151,8 +153,7 @@ public class JobApplicationDao extends Dao {
 		
 		return true;
 	}
-	
-	
+
 	@Override
 	public Bean getSingle(String id) {
 		return null;

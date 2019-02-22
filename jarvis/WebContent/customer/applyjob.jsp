@@ -29,8 +29,7 @@ CustomerBean cusBean = (CustomerBean)session.getAttribute("cusBean");
 				required>  <label for="WELFARE_LEVEL"><b>희망복지수준</b></label>
 			<input type="text" placeholder="Enter Password" name="WELFARE_LEVEL" > 
 			<label for="WORKING_AREA"><b>희망근무지역</b></label> 
-				<input type="text" placeholder="Enter WorkingArea" name="WORKING_AREA" > <label for="EMPLOYEE_NAME"><b>이름</b></label>
-			<input type="text" placeholder="Enter Name" name="EMPLOYEE_NAME">
+				<input type="text" placeholder="Enter WorkingArea" name="WORKING_AREA" > 
 
 			<label for="REQ_SALARY"><b>희망연봉</b></label><br> 
 			<input type="number" name="REQ_SALARY"  placeholder="Enter Req_Salay" ><br> 

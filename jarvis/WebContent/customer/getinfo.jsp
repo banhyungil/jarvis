@@ -16,7 +16,7 @@
   <button class="tablinks" onclick="openCity(event, 'London')">자격증</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">경력</button>
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">보유기술명세서</button>
-  <button class="tablinks" onclick="openCity(event, 'Pusan')">자소서</button>
+  <button class="tablinks" id="resum_btn" onclick="openCity(event, 'Pusan')">자소서</button>
   <button class="tablinks" onclick="openCity(event, 'Monaco')"><a href="cus_main.jsp">메인으로</a></button>
 </div>
 
@@ -50,7 +50,18 @@
   <h3>메인으로</h3>
   <p>Paris is the capital of France.</p> 
 </div>
-
+<%
+	String regist = request.getParameter("regist");
+	if(regist == null){
+		
+	}else if(regist.equals("regist")){
+		%>
+		<script>
+		openCity1("Pusan");
+		</script>
+		<%
+	}
+%>
 </body>
 </html> 
 

@@ -21,20 +21,50 @@ if(action.equals("rec_list")){
 }else if(action.equals("insert")){
 	if(table_type.equals("job_app")){
 		JobApplicationDao jDao = new JobApplicationDao();
-		jDao.insert(jBean);
-		%>
-		<script>
-		alert("구직신청 성공");
-		</script>
-		<%
-		response.sendRedirect(request.getContextPath() + "/customer/cus_main.jsp");
+		CustomerBean cusBean = (CustomerBean)session.getAttribute("cusBean");
+		jBean.setCUSTOMER_ID(cusBean.getCustomer_id());
+		boolean b = jDao.insert(jBean);
+		if(b){
+			%>
+			<script>
+			alert("구직신청 성공");
+			</script>
+			<%
+			response.sendRedirect(request.getContextPath() + "/customer/cus_main.jsp");
+		}else{
+			%>
+			<script>
+			alert("이력서를 등록하시거나 희망연봉을 제시해주세요");
+			window.history.back();
+			</script>
+			<%
+		}	
+			
+		
 	}else if(table_type.equals("resume")){
 		ResumesDao resumDao = new ResumesDao();
 		CustomerBean cusBean = (CustomerBean)session.getAttribute("cusBean");
 		resumBean.setCustomer_id(cusBean.getCustomer_id());
 		resumDao.insert(resumBean);
-		response.sendRedirect(request.getContextPath() + "/customer/getinfo/getinfo_resum.jsp");
+		%>
+		<script>
+		alert("이력서 등록 성공");
+		</script>
+		<%
+		response.sendRedirect(request.getContextPath() + "/customer/getinfo.jsp?regist=regist");
+		
+	}	
+}else if(action.equals("delete")){
+	String str = request.getParameter("resum");
+	String[] idArray = str.split(",");
+	if(idArray == null){
+		ResumesDao resumDao = new ResumesDao();
+		resumDao.delete(Integer.parseInt(str));
 	}
-	
+	for(String s : idArray){
+		ResumesDao resumDao = new ResumesDao();
+		resumDao.delete(Integer.parseInt(s));
+	}
+	response.sendRedirect(request.getContextPath() + "/customer/getinfo.jsp");
 }
 %>
